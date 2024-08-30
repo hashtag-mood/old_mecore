@@ -27,27 +27,36 @@ class _TodayPageState extends State<TodayPage> {
 
   @override
   Widget build(BuildContext context) {
-    double mainHeight = MediaQuery.of(context).size.width / 7;
+    final double drawerWidth = MediaQuery.of(context).size.width * 0.8;
+    final double customDrawerWidth = drawerWidth * 0.9;
+    final double mainHeight = MediaQuery.of(context).size.width / 7;
     return SafeArea(
       child: Scaffold(
         key: _scaffoldKey,
         drawer: Container(
+          width: customDrawerWidth,
+          decoration: BoxDecoration(
+            border: Border(
+                top: mainBorderSide,
+                bottom: mainBorderSide,
+                right: mainBorderSide),
+          ),
           child: Drawer(
+            shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.all(Radius.zero)),
+            backgroundColor: Colors.white,
             child: ListView(
-              children: const <Widget>[
+              children: <Widget>[
                 ListTile(
-                  leading: Image(image: AssetImage('assets/img/logo.png')),
+                  contentPadding: EdgeInsets.fromLTRB(20, 10, 0, 10),
+                  leading: Image(
+                    image: AssetImage('assets/img/logo.png'),
+                    width: customDrawerWidth * 0.5,
+                  ),
                 )
               ],
             ),
           ),
-          decoration: BoxDecoration(
-              color: Colors.white,
-              border: Border(
-                  top: mainBorderSide,
-                  bottom: mainBorderSide,
-                  right: mainBorderSide),
-              borderRadius: BorderRadius.all(Radius.zero)),
         ),
         body: Stack(
           children: [
