@@ -28,37 +28,167 @@ class _TodayPageState extends State<TodayPage> {
             width: mainHeight * 5,
             backgroundColor: Colors.white,
             shape: RoundedRectangleBorder(borderRadius: BorderRadius.zero),
-            child: ListView(
-              padding: EdgeInsets.zero,
+            child: Column(
               children: <Widget>[
                 Container(
-                  decoration: BoxDecoration(
-                    border: Border(
-                      bottom: mainBorderSide,
-                    ),
+                  child: Image(
+                    image: AssetImage('assets/img/logo.png'),
+                    width: mainHeight * 3,
                   ),
-                  height: mainHeight * 0.25,
-                  child: ListTile(
-                    tileColor: Colors.pink,
+                  height: mainHeight - 1,
+                  alignment: Alignment.centerLeft,
+                  padding: EdgeInsets.symmetric(horizontal: 12),
+                  decoration: BoxDecoration(
+                    border: Border(bottom: mainBorderSide),
                   ),
                 ),
-                Container(
-                  height: mainHeight,
-                  decoration: BoxDecoration(
-                    border: Border(
-                      bottom: mainBorderSide,
-                    ),
-                  ),
-                  child: ListTile(
-                    leading: Text('💟'),
-                    title: Text('Monthly'),
+                Expanded(
+                  child: ListView(
+                    children: <Widget>[
+                      Container(
+                        height: mainHeight * 0.25,
+                        decoration: BoxDecoration(
+                          border: Border(bottom: mainBorderSide),
+                          color: Colors.pink,
+                        ),
+                      ),
+                      Container(
+                        height: mainHeight,
+                        alignment: Alignment.centerLeft,
+                        child: ListTile(
+                          leading: Text(
+                            '💌',
+                            style: TextStyle(fontSize: 17),
+                          ),
+                          title: Text(
+                            'MONTHLY',
+                            style: TextStyle(fontSize: 17),
+                          ),
+                        ),
+                      ),
+                      Container(
+                        height: mainHeight,
+                        alignment: Alignment.centerLeft,
+                        child: ListTile(
+                          leading: Text(
+                            '📍',
+                            style: TextStyle(fontSize: 17),
+                          ),
+                          title: Text(
+                            'TO-DO',
+                            style: TextStyle(fontSize: 17),
+                          ),
+                        ),
+                      ),
+                      Container(
+                        height: mainHeight,
+                        alignment: Alignment.centerLeft,
+                        child: ListTile(
+                          leading: Text(
+                            '🧸',
+                            style: TextStyle(fontSize: 17),
+                          ),
+                          title: Text(
+                            'TODAY',
+                            style: TextStyle(fontSize: 17),
+                          ),
+                        ),
+                      ),
+                      Container(
+                        height: mainHeight,
+                        alignment: Alignment.centerLeft,
+                        child: ListTile(
+                          leading: Text(
+                            '🖋',
+                            style: TextStyle(fontSize: 17),
+                          ),
+                          title: Text(
+                            'JOURNAL',
+                            style: TextStyle(fontSize: 17),
+                          ),
+                        ),
+                      ),
+                      Container(
+                        height: mainHeight,
+                        alignment: Alignment.centerLeft,
+                        child: ListTile(
+                          leading: Text(
+                            '📓',
+                            style: TextStyle(fontSize: 17),
+                          ),
+                          title: Text(
+                            'RECORD',
+                            style: TextStyle(fontSize: 17),
+                          ),
+                        ),
+                      ),
+                      Container(
+                        height: mainHeight * 0.25,
+                        decoration: BoxDecoration(
+                          border: Border(
+                              top: mainBorderSide, bottom: mainBorderSide),
+                          color: Colors.pink,
+                        ),
+                      ),
+                      Container(
+                        height: mainHeight,
+                        alignment: Alignment.centerLeft,
+                        child: ListTile(
+                          leading: Text(
+                            '🥰',
+                            style: TextStyle(fontSize: 17),
+                          ),
+                          title: SingleChildScrollView(
+                            scrollDirection: Axis.horizontal,
+                            child: Text(
+                              'FAMILY CALENDAR',
+                              style: TextStyle(fontSize: 17),
+                            ),
+                          ),
+                        ),
+                      ),
+                      Container(
+                        height: mainHeight,
+                        alignment: Alignment.centerLeft,
+                        child: ListTile(
+                          leading: Text(
+                            '💥',
+                            style: TextStyle(fontSize: 17),
+                          ),
+                          title: SingleChildScrollView(
+                            scrollDirection: Axis.horizontal,
+                            child: Text(
+                              'URGENT CALENDAR',
+                              style: TextStyle(fontSize: 17),
+                            ),
+                          ),
+                        ),
+                      ),
+                      Container(
+                        height: mainHeight,
+                        alignment: Alignment.centerLeft,
+                        child: ListTile(
+                          leading: Text(
+                            '🦥',
+                            style: TextStyle(fontSize: 17),
+                          ),
+                          title: SingleChildScrollView(
+                            scrollDirection: Axis.horizontal,
+                            child: Text(
+                              'NOT URGENT CALENDAR',
+                              style: TextStyle(fontSize: 17),
+                            ),
+                          ),
+                        ),
+                      ),
+                    ],
                   ),
                 )
               ],
             ),
           ),
         ),
-        body: Stack(
+        body: Column(
           children: [
             Container(
               height: mainHeight,
@@ -138,16 +268,54 @@ class _TodayPageState extends State<TodayPage> {
                   Expanded(
                     flex: 1,
                     child: Container(
-                        decoration: BoxDecoration(
-                            color: Colors.white,
-                            border: Border(
-                              top: mainBorderSide,
-                              bottom: mainBorderSide,
-                            ))),
+                      decoration: BoxDecoration(
+                        color: Colors.white,
+                        border: Border(
+                          top: mainBorderSide,
+                          bottom: mainBorderSide,
+                        ),
+                      ),
+                    ),
                   ),
                 ],
               ),
             ),
+            Expanded(
+              child: SingleChildScrollView(
+                child: Column(
+                  children: <Widget>[
+                    Container(
+                      height: mainHeight * 5,
+                      decoration: BoxDecoration(
+                        border: Border(bottom: mainBorderSide),
+                        color: Colors.cyan,
+                      ),
+                    ),
+                    Container(
+                      height: mainHeight * 10,
+                      decoration: BoxDecoration(
+                        border: Border(bottom: mainBorderSide),
+                        color: Colors.pink,
+                      ),
+                    ),
+                    Container(
+                      height: mainHeight * 20,
+                      decoration: BoxDecoration(
+                        border: Border(bottom: mainBorderSide),
+                        color: Colors.blue,
+                      ),
+                    ),
+                    Container(
+                      height: mainHeight * 3,
+                      decoration: BoxDecoration(
+                        border: Border(bottom: mainBorderSide),
+                        color: Colors.purple,
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+            )
           ],
         ),
       ),
