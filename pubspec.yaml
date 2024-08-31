@@ -76,10 +76,61 @@ flutter:
   # "family" key with the font family name, and a "fonts" key with a
   # list giving the asset and other descriptors for the font. For
   # example:
-  # fonts:
-  #   - family: Schyler
-  #     fonts:
-  #       - asset: fonts/Schyler-Regular.ttf
+  fonts:
+    - family: Interop Bold
+      fonts:
+        - asset: assets/fonts/Interop/Interop-Bold.otf
+    - family: Interop ExtraBold
+      fonts:
+        - asset: assets/fonts/Interop/Interop-ExtraBold.otf
+    - family: Interop ExtraLight
+      fonts:
+        - asset: assets/fonts/Interop/Interop-ExtraLight.otf
+    - family: Interop Light
+      fonts:
+        - asset: assets/fonts/Interop/Interop-Light.otf
+    - family: Interop Medium
+      fonts:
+        - asset: assets/fonts/Interop/Interop-Medium.otf
+    - family: Interop Regular
+      fonts:
+        - asset: assets/fonts/Interop/Interop-Regular.otf
+    - family: Interop SemiBold
+      fonts:
+        - asset: assets/fonts/Interop/Interop-SemiBold.otf
+    - family: Interop Thin
+      fonts:
+        - asset: assets/fonts/Interop/Interop-Thin.otf
+    - family: Inter
+      fonts:
+        - asset: assets/fonts/Inter/Inter-VariableFont_opsz,wght.ttf
+    - family: Inter Italic
+      fonts:
+        - asset: assets/fonts/Inter/Inter-Italic-VariableFont_opsz,wght.ttf
+    - family: Unbounded Black
+      fonts:
+        - asset: assets/fonts/Unbounded/Unbounded-Black.ttf
+    - family: Unbounded Bold
+      fonts:
+        - asset: assets/fonts/Unbounded/Unbounded-Bold.ttf
+    - family: Unbounded ExtraBold
+      fonts:
+        - asset: assets/fonts/Unbounded/Unbounded-ExtraBold.ttf
+    - family: Unbounded ExtraLight
+      fonts:
+        - asset: assets/fonts/Unbounded/Unbounded-ExtraLight.ttf
+    - family: Unbounded Light
+      fonts:
+        - asset: assets/fonts/Unbounded/Unbounded-Light.ttf
+    - family: Unbounded Medium
+      fonts:
+        - asset: assets/fonts/Unbounded/Unbounded-Medium.ttf
+    - family: Unbounded Regular
+      fonts:
+        - asset: assets/fonts/Unbounded/Unbounded-Regular.ttf
+    - family: Unbounded SemiBold
+      fonts:
+        - asset: assets/fonts/Unbounded/Unbounded-SemiBold.ttf
   #       - asset: fonts/Schyler-Italic.ttf
   #         style: italic
   #   - family: Trajan Pro
