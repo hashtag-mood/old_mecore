@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';
 
-import '../MonthlyPage.dart';
-import '../TodayPage.dart';
+import '../pages/monthly_page.dart';
+import '../pages/today_page.dart';
 
 class CommonDrawer extends StatefulWidget {
   const CommonDrawer({super.key});

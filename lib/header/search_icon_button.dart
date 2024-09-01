@@ -1,7 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
-import 'package:diary/search_page.dart';
+import 'package:diary/pages/search_page.dart';
 
 class SearchIconButton extends StatefulWidget {
   const SearchIconButton({super.key});

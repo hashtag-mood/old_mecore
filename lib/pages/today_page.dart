@@ -1,4 +1,3 @@
-import 'package:diary/header/date_picker.dart';
 import 'package:diary/header/more_icon_button.dart';
 import 'package:diary/header/user_image.dart';
 import 'package:diary/header/search_icon_button.dart';
@@ -80,7 +79,42 @@ class _TodayPageState extends State<TodayPage> {
                     ),
                   ),
                   UserImage(),
-                  HeaderDatePicker(),
+                  Expanded(
+                    flex: 3,
+                    child: Container(
+                      height: mainHeight,
+                      decoration: BoxDecoration(
+                        color: Colors.white,
+                        border: Border(
+                          top: mainBorderSide,
+                          bottom: mainBorderSide,
+                          right: mainBorderSide,
+                        ),
+                      ),
+                      child: Center(
+                        child: Column(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          crossAxisAlignment: CrossAxisAlignment.center,
+                          children: <Widget>[
+                            TextButton(
+                              style: ButtonStyle(
+                                backgroundColor:
+                                    WidgetStatePropertyAll(Colors.transparent),
+                                overlayColor:
+                                    WidgetStatePropertyAll(Colors.transparent),
+                              ),
+                              onPressed: () => _selectDate(context),
+                              child: Text(
+                                '${formatDate(_selectedDate)}',
+                                style:
+                                    Theme.of(context).textTheme.headlineMedium,
+                              ),
+                            ),
+                          ],
+                        ),
+                      ),
+                    ),
+                  ),
                   SearchIconButton(),
                   MoreIconButton(),
                 ],

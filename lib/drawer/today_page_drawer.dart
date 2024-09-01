@@ -1,8 +1,8 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
-import '../MonthlyPage.dart';
-import '../TodayPage.dart';
+import '../pages/monthly_page.dart';
+import '../pages/today_page.dart';
 import 'common_drawer.dart';
 import 'emoji_tile.dart';
 

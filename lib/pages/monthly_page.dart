@@ -1,7 +1,10 @@
+import 'package:diary/header/search_icon_button.dart';
+import 'package:diary/header/user_image.dart';
+import 'package:diary/pages/search_page.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';
 
-import 'package:diary/TodayPage.dart';
+import 'package:diary/pages/today_page.dart';
 import 'package:diary/drawer/common_drawer.dart';
 
 class MonthlyPage extends StatefulWidget {
@@ -71,23 +74,7 @@ class _MonthlyPageState extends State<MonthlyPage> {
                           )),
                     ),
                   ),
-                  Expanded(
-                    flex: 1,
-                    child: Container(
-                      // height: double.infinity,
-                      child: Image(
-                        image: AssetImage('assets/img/user_image.jpg'),
-                        fit: BoxFit.cover,
-                      ),
-                      decoration: BoxDecoration(
-                        border: Border(
-                          top: mainBorderSide,
-                          bottom: mainBorderSide,
-                          right: mainBorderSide,
-                        ),
-                      ),
-                    ),
-                  ),
+                  UserImage(),
                   Expanded(
                     flex: 3,
                     child: Container(
@@ -124,19 +111,7 @@ class _MonthlyPageState extends State<MonthlyPage> {
                       ),
                     ),
                   ),
-                  Expanded(
-                    flex: 1,
-                    child: Container(
-                      decoration: BoxDecoration(
-                        color: Colors.white,
-                        border: Border(
-                          top: mainBorderSide,
-                          bottom: mainBorderSide,
-                          right: mainBorderSide,
-                        ),
-                      ),
-                    ),
-                  ),
+                  SearchIconButton(),
                   Expanded(
                     flex: 1,
                     child: Container(
