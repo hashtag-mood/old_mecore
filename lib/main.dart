@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/cupertino.dart';
 import 'TodayPage.dart';
+import 'MonthlyPage.dart';
 
 void main() {
   runApp(const Diary());
