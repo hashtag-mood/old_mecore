@@ -1,3 +1,6 @@
+import 'dart:math';
+import 'dart:io';
+
 import 'package:flutter/material.dart';
 
 class TodayPage extends StatefulWidget {
@@ -9,11 +12,33 @@ class TodayPage extends StatefulWidget {
 
 class _TodayPageState extends State<TodayPage> {
   final GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey<ScaffoldState>();
+  final mainBorderSide = BorderSide(color: Colors.black);
+  DateTime _selectedDate = DateTime.now();
 
   @override
   Widget build(BuildContext context) {
     final double mainHeight = MediaQuery.of(context).size.width / 7;
-    final mainBorderSide = BorderSide(color: Colors.black);
+    Future<void> _selectDate(BuildContext context) async {
+      final DateTime? picked = await showDatePicker(
+        context: context,
+        initialDate: _selectedDate,
+        firstDate: DateTime(1900),
+        lastDate: DateTime(2100),
+      );
+
+      if (picked != null && picked != _selectedDate) {
+        setState(() {
+          _selectedDate = picked;
+        });
+      }
+    }
+
+    String formatDate(DateTime date) {
+      String year = date.year.toString();
+      String month = date.month.toString().padLeft(2, '0');
+      String day = date.day.toString().padLeft(2, '0');
+      return '$year/$month/$day';
+    }
 
     return SafeArea(
       child: Scaffold(
@@ -234,22 +259,34 @@ class _TodayPageState extends State<TodayPage> {
                     flex: 3,
                     child: Container(
                       height: mainHeight,
-                      child: Center(
-                        child: Text(
-                          '2024년',
-                          style: TextStyle(
-                            color: Colors.pink,
-                            fontWeight: FontWeight.bold,
-                            fontSize: 24,
-                          ),
-                        ),
-                      ),
                       decoration: BoxDecoration(
                         color: Colors.white,
                         border: Border(
                           top: mainBorderSide,
                           bottom: mainBorderSide,
                           right: mainBorderSide,
+                        ),
+                      ),
+                      child: Center(
+                        child: Column(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          crossAxisAlignment: CrossAxisAlignment.center,
+                          children: <Widget>[
+                            TextButton(
+                              style: ButtonStyle(
+                                backgroundColor:
+                                    WidgetStatePropertyAll(Colors.transparent),
+                                overlayColor:
+                                    WidgetStatePropertyAll(Colors.transparent),
+                              ),
+                              onPressed: () => _selectDate(context),
+                              child: Text(
+                                '${formatDate(_selectedDate)}',
+                                style:
+                                    Theme.of(context).textTheme.headlineMedium,
+                              ),
+                            ),
+                          ],
                         ),
                       ),
                     ),
@@ -268,6 +305,25 @@ class _TodayPageState extends State<TodayPage> {
                   Expanded(
                     flex: 1,
                     child: Container(
+                      child: Center(
+                        child: Column(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          crossAxisAlignment: CrossAxisAlignment.center,
+                          children: <Widget>[
+                            IconButton(
+                              onPressed: () {
+                                setState(() {
+                                  _selectedDate = DateTime.now();
+                                });
+                              },
+                              icon: Icon(
+                                Icons.refresh_sharp,
+                              ),
+                              iconSize: mainHeight * 0.6,
+                            )
+                          ],
+                        ),
+                      ),
                       decoration: BoxDecoration(
                         color: Colors.white,
                         border: Border(

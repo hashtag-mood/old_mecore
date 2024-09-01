@@ -11,7 +11,13 @@ class Diary extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      theme: ThemeData(fontFamily: 'Interop Regular'),
+      theme: ThemeData(
+        fontFamily: 'Interop Regular',
+        textTheme: TextTheme(
+          headlineMedium:
+              TextStyle(fontFamily: 'Unbounded Regular', fontSize: 18),
+        ),
+      ),
       home: const TodayPage(),
     );
   }
