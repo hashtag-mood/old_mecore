@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';
 import 'pages/today_page.dart';
-import 'pages/monthly_page.dart';
 
 void main() {
   runApp(const Diary());
@@ -13,6 +12,7 @@ class Diary extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      debugShowCheckedModeBanner: false,
       theme: ThemeData(
         fontFamily: 'Interop Regular',
         textTheme: TextTheme(

@@ -131,6 +131,19 @@ flutter:
     - family: Unbounded SemiBold
       fonts:
         - asset: assets/fonts/Unbounded/Unbounded-SemiBold.ttf
+    - family: 학교안심 바른돋움 R
+      fonts:
+        - asset: assets/fonts/학교안심 바른돋움/HakgyoansimBareondotumR.ttf
+    - family: 학교안심 바른돋움 B
+      fonts:
+        - asset: assets/fonts/학교안심 바른돋움/HakgyoansimBareondotumB.ttf
+    - family: Public Sans
+      fonts:
+        - asset: assets/fonts/Public Sans/PublicSans-VariableFont_wght.ttf
+    - family: Public Sans Italic
+      fonts:
+        - asset: assets/fonts/Public Sans/PublicSans-Italic-VariableFont_wght.ttf
+
   #       - asset: fonts/Schyler-Italic.ttf
   #         style: italic
   #   - family: Trajan Pro
