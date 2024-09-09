@@ -30,6 +30,10 @@ ENOUGH는 이를 목표로 하여 제작된 앱입니다
 
 https://www.figma.com/design/4WHyVdzEtiaRpCsR3cP1f6/NEW-ENOUGH?node-id=112-100
 
+### STATUS
+🧸 AppBar 및 Drawer 구현 완료
+🤔 Calendar의 Emoji로 CheckBox를 대신하는 것이 괜찮은지? 아예 이 기능을 빼는 것도 고려 중입니다.
+
 ### NOTE
 
 ENOUGH는 가칭입니다
