@@ -3,19 +3,19 @@ import 'package:diary/utils/appbar/appbar_date_picker_button.dart';
 import 'package:diary/utils/appbar/appbar_refresh_icon_button.dart';
 import 'package:diary/utils/appbar/appbar_search_icon_button.dart';
 import 'package:diary/utils/appbar/appbar_user_image.dart';
-import 'package:diary/utils/custom_date_picker.dart';
 import 'package:diary/utils/appbar/appbar_menu_icon_button.dart';
+import 'package:diary/utils/custom_date_picker.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
-class MonthlyPageAppbar extends StatefulWidget {
-  const MonthlyPageAppbar({super.key});
+class MonthlyScreenAppbar extends StatefulWidget {
+  const MonthlyScreenAppbar({super.key});
 
   @override
-  State<MonthlyPageAppbar> createState() => _MonthlyPageAppbarState();
+  State<MonthlyScreenAppbar> createState() => _MonthlyScreenAppbarState();
 }
 
-class _MonthlyPageAppbarState extends State<MonthlyPageAppbar> {
+class _MonthlyScreenAppbarState extends State<MonthlyScreenAppbar> {
   @override
   Widget build(BuildContext context) {
     return Container(

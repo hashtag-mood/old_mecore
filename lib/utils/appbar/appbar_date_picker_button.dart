@@ -31,7 +31,7 @@ class AppbarDatePickerButton extends StatelessWidget {
           onPressed: onPressedCallback,
           child: Text(
             formatDate(customDatePicker.selectedDate),
-            style: dateTextStyle,
+            style: dateTextStyle(context),
           ),
         ),
       ),

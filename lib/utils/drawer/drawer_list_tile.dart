@@ -15,13 +15,17 @@ class DrawerListTile extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ListTile(
-      leading: Text(
-        leading,
-        style: drawerListTileFontStyle,
+      leading: SizedBox(
+        width: 24,
+        child: Text(
+          leading,
+          style: drawerListTileFontStyle(context),
+          textAlign: TextAlign.center,
+        ),
       ),
       title: Text(
         title,
-        style: drawerListTileFontStyle,
+        style: drawerListTileFontStyle(context),
       ),
       onTap: onTapCallback,
     );

@@ -1,4 +1,4 @@
-import 'package:diary/pages/search_page.dart';
+import 'package:diary/screens/search_screen.dart';
 import 'package:diary/themes/theme_data.dart';
 import 'package:diary/utils/utils.dart';
 import 'package:flutter/cupertino.dart';
@@ -21,7 +21,7 @@ class AppbarSearchIconButton extends StatelessWidget {
             Navigator.pushReplacement(
               context,
               CupertinoPageRoute(
-                builder: (context) => SearchPage(),
+                builder: (context) => SearchScreen(),
               ),
             );
           },

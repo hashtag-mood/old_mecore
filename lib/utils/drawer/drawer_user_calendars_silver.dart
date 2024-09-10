@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 class DrawerUserCalendarsSilver extends StatefulWidget {
   final String emoji;
   final String title;
+
   const DrawerUserCalendarsSilver(
       {super.key, required this.emoji, required this.title});
 
@@ -17,32 +18,40 @@ class _DrawerUserCalendarsSilverState extends State<DrawerUserCalendarsSilver> {
 
   @override
   Widget build(BuildContext context) {
-    return ListTile(
-      leading: GestureDetector(
-        onTap: () {
-          setState(() {
-            _isEmojiChecked = !_isEmojiChecked;
-          });
-        },
-        child: _isEmojiChecked
-            ? Text(
-                widget.emoji,
-                style: drawerListTileFontStyle,
+    return GestureDetector(
+      onTap: () {
+        setState(() {
+          _isEmojiChecked = !_isEmojiChecked;
+        });
+      },
+      child: ListTile(
+        leading: _isEmojiChecked
+            ? SizedBox(
+                width: 24,
+                child: Text(
+                  widget.emoji,
+                  style: drawerListTileFontStyle(context),
+                  textAlign: TextAlign.center,
+                ),
               )
             : ColorFiltered(
                 colorFilter: ColorFilter.mode(
                     drawerUserCalendarEmojiColor, BlendMode.srcIn),
-                child: Text(
-                  widget.emoji,
-                  style: drawerListTileFontStyle,
+                child: SizedBox(
+                  width: 24,
+                  child: Text(
+                    widget.emoji,
+                    style: drawerListTileFontStyle(context),
+                    textAlign: TextAlign.center,
+                  ),
                 ),
               ),
-      ),
-      title: SingleChildScrollView(
-        scrollDirection: Axis.horizontal,
-        child: Text(
-          widget.title,
-          style: drawerListTileFontStyle,
+        title: SingleChildScrollView(
+          scrollDirection: Axis.horizontal,
+          child: Text(
+            widget.title,
+            style: drawerListTileFontStyle(context),
+          ),
         ),
       ),
     );

@@ -37,6 +37,9 @@ dependencies:
   cupertino_icons: ^1.0.2
   device_preview: ^1.2.0
   flutter_bloc: ^8.1.6
+  flutter_localizations:
+    sdk: flutter
+  intl: any
 
 dev_dependencies:
   flutter_test:
@@ -47,7 +50,7 @@ dev_dependencies:
   # activated in the `analysis_options.yaml` file located at the root of your
   # package. See that file for information about deactivating specific lint
   # rules and activating additional ones.
-  flutter_lints: ^2.0.0
+  flutter_lints: ^4.0.0
 
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec
@@ -144,7 +147,12 @@ flutter:
     - family: Public Sans Italic
       fonts:
         - asset: assets/fonts/Public Sans/PublicSans-Italic-VariableFont_wght.ttf
-
+    - family: Helmet Neue
+      fonts:
+        - asset: assets/fonts/HelmetNeue-Regular.otf
+    - family: DISCO
+      fonts:
+        - asset: assets/fonts/DISCO___.TTF
   #       - asset: fonts/Schyler-Italic.ttf
   #         style: italic
   #   - family: Trajan Pro

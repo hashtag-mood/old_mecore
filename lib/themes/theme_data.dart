@@ -20,11 +20,29 @@ final drawerDividerColor = Color(0xffFF7DAD);
 //   color: Color(0xFF000000),
 // );
 
-final dateTextStyle = TextStyle(
-    fontFamily: 'Unbounded SemiBold', fontSize: 21, color: Color(0xFF000000));
+/// fontFamily: Unbounded SemiBold, fontSize: appbarLength(context) * 0.38, color: black
+TextStyle dateTextStyle(BuildContext context) {
+  return TextStyle(
+      fontFamily: 'Unbounded SemiBold',
+      fontSize: appbarLength(context) * 0.38,
+      color: Color(0xFF000000));
+}
 
-/// fontSize: 17
-final drawerListTileFontStyle = TextStyle(fontSize: 17);
+/// fontSize: appbarLength(context) * 0.17
+TextStyle drawerListTileFontStyle(BuildContext context) {
+  return TextStyle(
+    fontSize: appbarLength(context) * 5 * 0.06,
+  );
+}
 
 /// color: silver
-final drawerUserCalendarEmojiColor = Color(0xffC4C4C4);
+final drawerUserCalendarEmojiColor = Color(0xFFC5C5C5);
+
+/// color: black
+final blackColor = Color(0xff000000);
+
+ThemeData customThemeData() {
+  return ThemeData(
+    colorScheme: ColorScheme.light(),
+  );
+}
