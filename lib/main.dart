@@ -1,6 +1,7 @@
-import 'package:diary/screens/today_screen.dart';
+import 'package:diary/config/routes/routes.dart';
+import 'package:diary/modules/screens/today_screen.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_localizations/flutter_localizations.dart';
 
 void main() {
   runApp(const Diary());
@@ -11,23 +12,19 @@ class Diary extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
+    return MaterialApp.router(
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
         fontFamily: 'Interop Regular',
+        cupertinoOverrideTheme: CupertinoThemeData(
+          textTheme: CupertinoTextThemeData(
+            textStyle: TextStyle(
+              fontFamily: 'Interop Regular',
+            ),
+          ),
+        ),
       ),
-      localizationsDelegates: [
-        GlobalMaterialLocalizations.delegate,
-        GlobalCupertinoLocalizations.delegate,
-        GlobalWidgetsLocalizations.delegate,
-      ],
-      supportedLocales: [
-        Locale('en', 'US'),
-        Locale('ko', 'KR'),
-        Locale('ja', 'JP'),
-      ],
-      locale: Locale('en'),
-      home: const TodayScreen(),
+      routerConfig: router,
     );
   }
 }

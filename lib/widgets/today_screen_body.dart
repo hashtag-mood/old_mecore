@@ -1,0 +1,291 @@
+import 'package:diary/config/themes/color_picker_theme_data.dart';
+import 'package:diary/config/themes/theme_data.dart';
+import 'package:diary/modules/bloc/half_hour_color_cells_cubit.dart';
+import 'package:diary/modules/models/half_hour_color_cells.dart';
+import 'package:diary/utils/utils.dart';
+import 'package:diary/widgets/weather_icon_container.dart';
+import 'package:flutter/cupertino.dart';
+import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+
+class TodayScreenBody extends StatefulWidget {
+  const TodayScreenBody({
+    super.key,
+  });
+
+  @override
+  State<TodayScreenBody> createState() => _TodayScreenBodyState();
+}
+
+class _TodayScreenBodyState extends State<TodayScreenBody> {
+  @override
+  Widget build(BuildContext context) {
+    return ClipRect(
+      child: SingleChildScrollView(
+        child: Column(
+          children: [
+            Row(
+              children: [
+                Column(
+                  children: [
+                    WeatherIconContainer(),
+                    Row(
+                      children: [
+                        Container(
+                          width: appbarLength(context) * 5 / 7 * 2 - 1.3,
+                          height: musicContainerHeight(context),
+                          child: TextButton(
+                            onPressed: () {},
+                            style: ButtonStyle(
+                              overlayColor:
+                                  WidgetStatePropertyAll(Colors.transparent),
+                            ),
+                            child: Text(
+                              '🤸🏻‍♀️',
+                              style: TextStyle(
+                                fontSize: 25,
+                              ),
+                            ),
+                          ),
+                          decoration: BoxDecoration(
+                            color: backgroundColor,
+                          ),
+                        ),
+                        Container(
+                          width: appbarLength(context) * 5 / 7 * 5 + 0.3,
+                          height: musicContainerHeight(context),
+                          child: Column(
+                            children: [
+                              Container(
+                                padding: EdgeInsets.symmetric(horizontal: 8),
+                                width: appbarLength(context) * 5 / 7 * 5 + 0.3,
+                                height: musicContainerHeight(context) / 2,
+                                decoration: BoxDecoration(
+                                  border: Border(bottom: mainBorderSide),
+                                ),
+                                child: Align(
+                                  alignment: Alignment.center,
+                                  child: SingleChildScrollView(
+                                    scrollDirection: Axis.horizontal,
+                                    child: Text(
+                                      '여긴 뭐 넣지?',
+                                      style: TextStyle(
+                                        fontSize: 15,
+                                      ),
+                                      maxLines: 1,
+                                    ),
+                                  ),
+                                ),
+                              ),
+                              Container(
+                                padding: EdgeInsets.symmetric(horizontal: 8),
+                                width: appbarLength(context) * 5 / 7 * 5 + 0.3,
+                                height: musicContainerHeight(context) / 2,
+                                child: Align(
+                                  alignment: Alignment.center,
+                                  child: SingleChildScrollView(
+                                    scrollDirection: Axis.horizontal,
+                                    child: Text(
+                                      'THE BOYZ - NECTAR',
+                                      style: TextStyle(
+                                        fontSize: 15,
+                                      ),
+                                      maxLines: 1,
+                                    ),
+                                  ),
+                                ),
+                              ),
+                            ],
+                          ),
+                          decoration: BoxDecoration(
+                            color: backgroundColor,
+                            border: Border(
+                              left: mainBorderSide,
+                            ),
+                          ),
+                        )
+                      ],
+                    ),
+                  ],
+                ),
+                Container(
+                  width: appbarLength(context) * 2 + 1,
+                  height: appbarLength(context) * 2 + 1,
+                  decoration: BoxDecoration(
+                    border: Border(
+                      left: mainBorderSide,
+                    ),
+                  ),
+                  child: Image(
+                    image: AssetImage('assets/img/album_cover.jpg'),
+                    fit: BoxFit.cover,
+                  ),
+                ),
+              ],
+            ),
+            Container(
+              width: screenWidth(context),
+              height: appbarLength(context),
+              decoration: BoxDecoration(
+                color: backgroundColor,
+                border: Border(top: mainBorderSide, bottom: mainBorderSide),
+              ),
+              child: CupertinoTextField.borderless(
+                padding: EdgeInsets.only(left: 8),
+                style: TextStyle(color: blackColor, fontSize: 15),
+                placeholder: 'COMMENT',
+                placeholderStyle: TextStyle(
+                  fontSize: 15,
+                  color: textSilverColor,
+                ),
+                minLines: 1,
+                maxLines: 2,
+                textAlignVertical: TextAlignVertical.center,
+                textAlign: TextAlign.left,
+              ),
+            ),
+            // TODO favoirte colors
+            // TODO weather, today emoji, comment, and color picker to Stack
+            BlocBuilder<HalfHourColorCellsCubit, HalfHourColorCells>(
+              builder: (context, state) {
+                return SingleChildScrollView(
+                  scrollDirection: Axis.horizontal,
+                  child: Container(
+                    padding: EdgeInsets.symmetric(horizontal: 2.5),
+                    height: appbarLength(context),
+                    decoration: BoxDecoration(
+                      color: backgroundColor,
+                      border: Border(bottom: mainBorderSide),
+                    ),
+                    child: Row(
+                      children: List.generate(
+                        everyColors().length,
+                        (index) {
+                          return GestureDetector(
+                            onTap: () {},
+                            child: Container(
+                              margin: EdgeInsets.symmetric(horizontal: 3.5),
+                              width: appbarLength(context) * 0.57,
+                              height: appbarLength(context) * 0.57,
+                              decoration: BoxDecoration(
+                                color: everyColors()[index],
+                                border: Border.all(color: blackColor, width: 1),
+                              ),
+                            ),
+                          );
+                        },
+                      ),
+                    ),
+                  ),
+                );
+              },
+            ),
+            Row(
+              children: [
+                Column(
+                  children: List.generate(
+                    24,
+                    (index) {
+                      return Align(
+                        alignment: Alignment.centerLeft,
+                        child: Container(
+                          height: appbarLength(context) * 1.7,
+                          width: appbarLength(context),
+                          decoration: BoxDecoration(
+                            color: backgroundColor,
+                            border: Border(
+                              right: mainBorderSide,
+                              bottom: index == 23
+                                  ? BorderSide.none
+                                  : mainBorderSide,
+                            ),
+                          ),
+                          child: Align(
+                            alignment: Alignment.center,
+                            child: Text(
+                              hourText(index),
+                              style: TextStyle(
+                                fontSize: 20,
+                                fontFamily: 'Public Sans',
+                                letterSpacing: 2,
+                                fontVariations: [
+                                  FontVariation('wght', 200),
+                                ],
+                              ),
+                            ),
+                          ),
+                        ),
+                      );
+                    },
+                  ),
+                ),
+                BlocBuilder<HalfHourColorCellsCubit, HalfHourColorCells>(
+                  builder: (context, state) {
+                    return Column(
+                      children: List.generate(
+                        48,
+                        (index) {
+                          return Align(
+                            alignment: Alignment.centerLeft,
+                            child: Container(
+                              height: appbarLength(context) * 1.7 * 1 / 2,
+                              width: appbarLength(context) * 0.65,
+                              decoration: BoxDecoration(
+                                color: backgroundColor,
+                                border: Border(
+                                  right: mainBorderSide,
+                                  bottom: index == 47
+                                      ? BorderSide.none
+                                      : mainBorderSide,
+                                ),
+                              ),
+                              child: GestureDetector(
+                                onPanEnd: (details) {},
+                              ),
+                            ),
+                          );
+                        },
+                      ),
+                    );
+                  },
+                ),
+                Column(
+                  children: List.generate(
+                    48,
+                    (index) {
+                      return Align(
+                        alignment: Alignment.centerLeft,
+                        child: SizedBox(
+                          height: appbarLength(context) * 1.7 * 1 / 2,
+                          width: screenWidth(context) -
+                              appbarLength(context) * 1.65,
+                          child: CupertinoTextField(
+                            textAlignVertical: TextAlignVertical.center,
+                            style: TextStyle(
+                              color: blackColor,
+                              fontSize: 15,
+                            ),
+                            maxLines: 1,
+                            decoration: BoxDecoration(
+                              color: backgroundColor,
+                              border: Border(
+                                bottom: index == 47
+                                    ? BorderSide.none
+                                    : mainBorderSide,
+                              ),
+                            ),
+                          ),
+                        ),
+                      );
+                    },
+                  ),
+                ),
+              ],
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+}

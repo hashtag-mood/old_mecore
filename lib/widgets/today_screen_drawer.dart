@@ -1,9 +1,9 @@
-import 'package:diary/screens/monthly_screen.dart';
-import 'package:diary/screens/today_screen.dart';
-import 'package:diary/themes/theme_data.dart';
-import 'package:diary/utils/drawer/drawer_divider.dart';
-import 'package:diary/utils/drawer/drawer_list_tile.dart';
-import 'package:diary/utils/drawer/drawer_logo_image.dart';
+import 'package:diary/config/themes/theme_data.dart';
+import 'package:diary/modules/screens/calendar_screen.dart';
+import 'package:diary/modules/screens/today_screen.dart';
+import 'package:diary/utils/ui/drawer/drawer_divider.dart';
+import 'package:diary/utils/ui/drawer/drawer_list_tile.dart';
+import 'package:diary/utils/ui/drawer/drawer_logo_image.dart';
 import 'package:diary/utils/utils.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -14,7 +14,7 @@ class TodayScreenDrawer extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Drawer(
-      width: appbarLength(context) * 5,
+      width: drawerWidth(context),
       backgroundColor: backgroundColor,
       shape: RoundedRectangleBorder(borderRadius: BorderRadius.zero),
       child: Column(
@@ -36,7 +36,7 @@ class TodayScreenDrawer extends StatelessWidget {
                       await Navigator.pushReplacement(
                         context,
                         CupertinoPageRoute(
-                          builder: (context) => MonthlyScreen(),
+                          builder: (context) => CalendarScreen(),
                         ),
                       );
                     },

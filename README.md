@@ -1,4 +1,5 @@
 ### ENOUGH
+
 <img align="center" width="170" height="184" src="./README-img.png">
 
 ### ABOUT ENOUGH
@@ -31,8 +32,24 @@ ENOUGH는 이를 목표로 하여 제작된 앱입니다
 https://www.figma.com/design/4WHyVdzEtiaRpCsR3cP1f6/NEW-ENOUGH?node-id=112-100
 
 ### STATUS
-🧸 AppBar 및 Drawer 구현 완료
-🤔 Calendar의 Emoji로 CheckBox를 대신하는 것이 괜찮은지? 아예 이 기능을 빼는 것도 고려 중입니다.
+
+🤸🏻‍♀️ today screen 구현 중
+
+💥 image와 border가 겹쳐서 border가 얇게 보이는 이슈 발생
+
+🏃🏻‍♀️ 캘린더별 표시 유무 checkbox로 변경할 것
+
+🏃🏻‍♀️ popup menu button 수정할 것
+
+🏃🏻‍♀️ 삼성 캘린더의 date picker처럼 변경하되 문자 없이 숫자로 나타낼 것
+
+🏃🏻‍♀️ 곡 정보의 길이가 overflow되는 경우 animation controller 혹은 marquee 패키지 활용할 것
+
+🏃🏻‍♀️ splash screen 후 지문 및 비밀번호 잠금 화면 여부 고민 중
+
+
+
+🏃🏻‍♀️ platform과 light 및 dark mode 고려할 것
 
 ### NOTE
 
