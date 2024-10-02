@@ -2,7 +2,7 @@ import 'dart:io';
 
 import 'package:diary/config/themes/color_picker_theme_data.dart';
 import 'package:diary/config/themes/theme_data.dart';
-import 'package:diary/modules/screens/record_screen.dart';
+import 'package:diary/modules/screens/today_record_screen.dart';
 import 'package:diary/widgets/calendar_screen_appbar.dart';
 import 'package:diary/widgets/today_screen_appbar.dart';
 import 'package:flutter/cupertino.dart';

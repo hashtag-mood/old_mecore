@@ -14,8 +14,9 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 class TodayScreen extends StatefulWidget {
   final String? recordPath;
   final String? editPath;
+  final String? searchPath;
 
-  const TodayScreen({super.key, this.recordPath, this.editPath});
+  const TodayScreen({super.key, this.recordPath, this.editPath, this.searchPath});
 
   @override
   State<TodayScreen> createState() => _TodayScreenState();

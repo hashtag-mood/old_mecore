@@ -19,9 +19,11 @@ class AppbarMenuIconButton extends StatelessWidget {
         ),
         child: Builder(builder: (context) {
           return IconButton(
+            highlightColor: Colors.transparent,
             alignment: Alignment.center,
             onPressed: () {},
             icon: Icon(CupertinoIcons.grid),
+            iconSize: appbarLength(context) * 0.55,
           );
         }),
       ),

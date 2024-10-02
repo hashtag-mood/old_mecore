@@ -21,7 +21,7 @@ class WeatherIcon {
   static TextStyle unselectedTextStyle() {
     return TextStyle(
       fontFamily: 'Noto Emoji',
-      fontSize: 22,
+      fontSize: 20,
       fontVariations: const [FontVariation('wght', 600)],
       color: textSilverColor,
     );
@@ -30,7 +30,7 @@ class WeatherIcon {
   static TextStyle selectedTextStyle() {
     return const TextStyle(
       fontFamily: 'Noto Color Emoji',
-      fontSize: 22,
+      fontSize: 20,
     );
   }
 }

@@ -3,11 +3,13 @@ import 'package:diary/config/themes/theme_data.dart';
 import 'package:diary/modules/bloc/half_hour_color_cells_cubit.dart';
 import 'package:diary/modules/models/half_hour_color_cells.dart';
 import 'package:diary/utils/utils.dart';
+import 'package:diary/widgets/number_formatter.dart';
 import 'package:diary/widgets/weather_icon_container.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:intl/intl.dart';
 
 class TodayScreenBody extends StatefulWidget {
   const TodayScreenBody({
@@ -23,6 +25,7 @@ class _TodayScreenBodyState extends State<TodayScreenBody> {
   Widget build(BuildContext context) {
     return ClipRect(
       child: SingleChildScrollView(
+        physics: ClampingScrollPhysics(),
         child: Column(
           children: [
             Row(
@@ -58,42 +61,108 @@ class _TodayScreenBodyState extends State<TodayScreenBody> {
                           child: Column(
                             children: [
                               Container(
-                                padding: EdgeInsets.symmetric(horizontal: 8),
                                 width: appbarLength(context) * 5 / 7 * 5 + 0.3,
                                 height: musicContainerHeight(context) / 2,
                                 decoration: BoxDecoration(
                                   border: Border(bottom: mainBorderSide),
                                 ),
-                                child: Align(
-                                  alignment: Alignment.center,
-                                  child: SingleChildScrollView(
-                                    scrollDirection: Axis.horizontal,
-                                    child: Text(
-                                      '여긴 뭐 넣지?',
-                                      style: TextStyle(
-                                        fontSize: 15,
+                                child: Row(
+                                  children: [
+                                    Container(
+                                      width: appbarLength(context) * 5 / 7 - 1,
+                                      child: Align(
+                                        alignment: Alignment.center,
+                                        child: Image(
+                                          image: AssetImage(
+                                              'assets/icons/plus_48.png'),
+                                          width: appbarLength(context) * 0.25,
+                                          height: appbarLength(context) * 0.25,
+                                        ),
                                       ),
-                                      maxLines: 1,
                                     ),
-                                  ),
+                                    Container(
+                                      width: appbarLength(context) * 5 / 7 * 5 +
+                                          0.3 -
+                                          appbarLength(context) * 5 / 7 * 1.6,
+                                      child: Align(
+                                        alignment: Alignment.centerRight,
+                                        child: CupertinoTextField.borderless(
+                                          keyboardType: TextInputType.number,
+                                          inputFormatters: [
+                                            FilteringTextInputFormatter.digitsOnly,
+                                            NumberFormatter(),
+                                          ],
+                                          maxLength: 17,
+                                          placeholder: '1,000',
+                                          textAlign: TextAlign.right,
+                                          padding: EdgeInsets.only(right: 2),
+                                          style: TextStyle(
+                                            fontSize: 15,
+                                            color: blackColor,
+                                          ),
+                                          maxLines: 1,
+                                        ),
+                                      ),
+                                    ),
+                                    Container(
+                                      margin: EdgeInsets.zero,
+                                      width: appbarLength(context) * 5/7 * 0.6,
+                                      child: Align(alignment: Alignment.centerLeft, child: Text('₩', style: TextStyle(
+                                        fontSize: 15, color: blackColor,
+                                      ),),),
+                                    ),
+                                  ],
                                 ),
                               ),
                               Container(
-                                padding: EdgeInsets.symmetric(horizontal: 8),
                                 width: appbarLength(context) * 5 / 7 * 5 + 0.3,
                                 height: musicContainerHeight(context) / 2,
-                                child: Align(
-                                  alignment: Alignment.center,
-                                  child: SingleChildScrollView(
-                                    scrollDirection: Axis.horizontal,
-                                    child: Text(
-                                      'THE BOYZ - NECTAR',
-                                      style: TextStyle(
-                                        fontSize: 15,
+                                child: Row(
+                                  children: [
+                                    Container(
+                                      width: appbarLength(context) * 5 / 7 - 1,
+                                      child: Align(
+                                        alignment: Alignment.center,
+                                        child: Image(
+                                          image: AssetImage(
+                                              'assets/icons/minus.png'),
+                                          width: appbarLength(context) * 0.25,
+                                          height: appbarLength(context) * 0.25,
+                                        ),
                                       ),
-                                      maxLines: 1,
                                     ),
-                                  ),
+                                    Container(
+                                      width: appbarLength(context) * 5 / 7 * 5 +
+                                          0.3 -
+                                          appbarLength(context) * 5 / 7 * 1.6,
+                                      child: Align(
+                                        alignment: Alignment.centerRight,
+                                        child: CupertinoTextField.borderless(
+                                          keyboardType: TextInputType.number,
+                                          inputFormatters: [
+                                            FilteringTextInputFormatter.digitsOnly,
+                                            NumberFormatter(),
+                                          ],
+                                          maxLength: 17,
+                                          placeholder: '3,000',
+                                          textAlign: TextAlign.right,
+                                          padding: EdgeInsets.only(right: 2),
+                                          style: TextStyle(
+                                            fontSize: 15,
+                                            color: blackColor,
+                                          ),
+                                          maxLines: 1,
+                                        ),
+                                      ),
+                                    ),
+                                    Container(
+                                      margin: EdgeInsets.zero,
+                                      width: appbarLength(context) * 5/7 * 0.6,
+                                      child: Align(alignment: Alignment.centerLeft, child: Text('₩', style: TextStyle(
+                                        fontSize: 15, color: blackColor,
+                                      ),),),
+                                    ),
+                                  ],
                                 ),
                               ),
                             ],
@@ -210,7 +279,7 @@ class _TodayScreenBodyState extends State<TodayScreenBody> {
                                 fontFamily: 'Public Sans',
                                 letterSpacing: 2,
                                 fontVariations: [
-                                  FontVariation('wght', 200),
+                                  FontVariation('wght', 300),
                                 ],
                               ),
                             ),

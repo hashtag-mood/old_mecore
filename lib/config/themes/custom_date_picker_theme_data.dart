@@ -7,6 +7,9 @@ ThemeData getCustomDatePickerThemeData() {
       headerHelpStyle: const TextStyle(
         fontFamily: 'Interop Regular',
       ),
+
+      todayForegroundColor: WidgetStatePropertyAll(blackColor),
+      todayBackgroundColor: WidgetStatePropertyAll(lightPinkColor),
       dividerColor: Colors.transparent,
       shape: RoundedRectangleBorder(
         borderRadius: BorderRadius.zero,
@@ -16,48 +19,41 @@ ThemeData getCustomDatePickerThemeData() {
       ),
       // dayShape: WidgetStatePropertyAll(
       //   CircleBorder(
-      //     side: BorderSide(
-      //       color: Colors.transparent,
-      //       width: 1.5,
-      //     ),
       //     eccentricity: double.minPositive,
       //   ),
       // ),
       dayShape: WidgetStatePropertyAll(
         RoundedRectangleBorder(
-          side: BorderSide(
-            width: 1.5,
-            color: Colors.transparent,
-          ),
           borderRadius: BorderRadius.zero,
+          side: BorderSide(
+            strokeAlign: BorderSide.strokeAlignCenter,
+            color: blackColor,
+          ),
         ),
       ),
-      dayOverlayColor: WidgetStatePropertyAll(drawerDividerColor),
       weekdayStyle: TextStyle(
-        fontFamily: 'Unbounded Regular',
-        fontSize: 17,
+        fontFamily: 'Helmet Neue',
+        fontSize: 22,
         color: blackColor,
       ),
-      yearStyle: const TextStyle(
+      yearStyle: TextStyle(
         fontFamily: 'Unbounded Light',
       ),
-      todayBorder: BorderSide(
-        width: 1.5,
-      ),
       elevation: 0,
+      todayBorder: BorderSide(strokeAlign: BorderSide.strokeAlignCenter,),
     ),
     colorScheme: ColorScheme.light(
-      primary: backgroundColor,
-      onPrimary: blackColor,
-      surface: drawerDividerColor,
+      primary: blackColor,
+      onPrimary: backgroundColor,
+      surface: backgroundColor,
       shadow: Colors.transparent,
     ),
-    textTheme: const TextTheme(
+    textTheme: TextTheme(
       bodyLarge: TextStyle(
         fontFamily: 'Unbounded Light',
         fontSize: 13,
       ),
-      headlineLarge: TextStyle(
+      headlineLarge: const TextStyle(
         fontFamily: 'Helmet Neue',
         fontSize: 40,
         letterSpacing: -1,

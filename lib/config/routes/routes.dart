@@ -1,12 +1,12 @@
-import 'package:diary/config/themes/theme_data.dart';
 import 'package:diary/modules/screens/calendar_screen.dart';
 import 'package:diary/modules/screens/journal_screen.dart';
-import 'package:diary/modules/screens/record_screen.dart';
+import 'package:diary/modules/screens/today_record_screen.dart';
+import 'package:diary/modules/screens/search_screen.dart';
 import 'package:diary/modules/screens/setting_screen.dart';
 import 'package:diary/modules/screens/tasks_screen.dart';
 import 'package:diary/modules/screens/today_edit_screen.dart';
 import 'package:diary/modules/screens/today_screen.dart';
-import 'package:diary/utils/utils.dart';
+import 'package:diary/widgets/custom_bottom_navigation_bar.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
@@ -25,7 +25,7 @@ final _router = GoRouter(
   routes: [
     StatefulShellRoute.indexedStack(
       builder: (context, state, navigationShell) {
-        return BottomNavigationBar(
+        return CustomBottomNavigationBar(
           index: navigationShell.currentIndex,
           navigationShell: navigationShell,
           onDestinationSelected: (index) {
@@ -43,6 +43,7 @@ final _router = GoRouter(
               builder: (context, state) => TodayScreen(
                 recordPath: '/record',
                 editPath: '/edit',
+                searchPath: '/search',
               ),
               routes: [
                 GoRoute(
@@ -51,8 +52,9 @@ final _router = GoRouter(
                 ),
                 GoRoute(
                   path: 'record',
-                  builder: (context, state) => RecordScreen(),
+                  builder: (context, state) => TodayRecordScreen(),
                 ),
+                GoRoute(path: 'search', builder: (context, state) => SearchScreen(),),
               ],
             ),
           ],
@@ -64,12 +66,14 @@ final _router = GoRouter(
               path: '/calendar',
               builder: (context, state) => CalendarScreen(
                 tasksPath: '/tasks',
+                searchPath: '/search',
               ),
               routes: [
                 GoRoute(
                   path: 'tasks',
                   builder: (context, state) => TasksScreen(),
                 ),
+                GoRoute(path: 'search', builder: (context, state) => SearchScreen(),),
               ],
             ),
           ],
@@ -83,7 +87,7 @@ final _router = GoRouter(
               routes: [
                 GoRoute(
                   path: 'record',
-                  builder: (context, state) => RecordScreen(),
+                  builder: (context, state) => TodayRecordScreen(),
                 )
               ],
             ),
@@ -100,61 +104,8 @@ final _router = GoRouter(
         ),
       ],
     ),
+    GoRoute(path: '/search', builder: (context, state) => SearchScreen(),),
   ],
 );
-
-class BottomNavigationBar extends StatelessWidget {
-  final StatefulNavigationShell? navigationShell;
-  final int index;
-  final void Function(int)? onDestinationSelected;
-  const BottomNavigationBar({
-    super.key,
-    required this.navigationShell,
-    required this.index,
-    this.onDestinationSelected,
-  });
-
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      body: navigationShell,
-      bottomNavigationBar: Container(
-        decoration: BoxDecoration(
-          border: Border(top: mainBorderSide, bottom: mainBorderSide),
-        ),
-        child: NavigationBar(
-          onDestinationSelected: onDestinationSelected,
-          selectedIndex: index,
-          height: appbarLength(context),
-          backgroundColor: backgroundColor,
-          overlayColor: WidgetStatePropertyAll(Colors.transparent),
-          indicatorColor: Colors.transparent,
-          labelBehavior: NavigationDestinationLabelBehavior.alwaysHide,
-          destinations: [
-            NavigationDestination(
-              icon: Icon(CupertinoIcons.burst),
-              label: 'TODAY',
-              selectedIcon: Icon(CupertinoIcons.burst),
-            ),
-            NavigationDestination(
-              icon: Icon(CupertinoIcons.flag),
-              label: 'CALENDAR',
-              selectedIcon: Icon(CupertinoIcons.flag_fill),
-            ),
-            NavigationDestination(
-              icon: Icon(CupertinoIcons.scribble),
-              label: 'JOURNAL',
-              selectedIcon: Icon(
-                CupertinoIcons.scribble,
-              ),
-            ),
-            NavigationDestination(
-                icon: Icon(CupertinoIcons.wrench), label: 'SETTING'),
-          ],
-        ),
-      ),
-    );
-  }
-}
 
 GoRouter get router => _router;

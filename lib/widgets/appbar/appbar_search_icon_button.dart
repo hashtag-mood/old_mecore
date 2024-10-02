@@ -1,8 +1,10 @@
+import 'package:diary/config/routes/routes.dart';
 import 'package:diary/config/themes/theme_data.dart';
 import 'package:diary/modules/screens/search_screen.dart';
 import 'package:diary/utils/utils.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 
 class AppbarSearchIconButton extends StatelessWidget {
   const AppbarSearchIconButton({super.key});
@@ -20,12 +22,11 @@ class AppbarSearchIconButton extends StatelessWidget {
           highlightColor: Colors.transparent,
           alignment: Alignment.center,
           onPressed: () {
-            Navigator.pushReplacement(
-              context,
-              CupertinoPageRoute(
-                builder: (context) => SearchScreen(),
-              ),
-            );
+            if (GoRouter.of(context).routerDelegate.currentConfiguration.fullPath == '/today') {
+              context.go('/today/search');
+            } else if (GoRouter.of(context).routerDelegate.currentConfiguration.fullPath == '/calendar') {
+              context.go('/calendar/search');
+            }
           },
           icon: Image.asset(
             'assets/icons/search_48.png',

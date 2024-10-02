@@ -6,7 +6,8 @@ import 'package:flutter/material.dart';
 
 class CalendarScreen extends StatefulWidget {
   final String? tasksPath;
-  const CalendarScreen({super.key, this.tasksPath});
+  final String? searchPath;
+  const CalendarScreen({super.key, this.tasksPath, this.searchPath});
 
   @override
   State<CalendarScreen> createState() => _CalendarScreenState();

@@ -1,6 +1,6 @@
 import 'package:diary/config/routes/routes.dart';
 import 'package:diary/config/themes/theme_data.dart';
-import 'package:diary/modules/screens/record_screen.dart';
+import 'package:diary/modules/screens/today_record_screen.dart';
 import 'package:diary/utils/utils.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';

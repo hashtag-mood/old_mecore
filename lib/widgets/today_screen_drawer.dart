@@ -1,10 +1,10 @@
 import 'package:diary/config/themes/theme_data.dart';
 import 'package:diary/modules/screens/calendar_screen.dart';
 import 'package:diary/modules/screens/today_screen.dart';
-import 'package:diary/utils/ui/drawer/drawer_divider.dart';
-import 'package:diary/utils/ui/drawer/drawer_list_tile.dart';
-import 'package:diary/utils/ui/drawer/drawer_logo_image.dart';
 import 'package:diary/utils/utils.dart';
+import 'package:diary/widgets/drawer/drawer_divider.dart';
+import 'package:diary/widgets/drawer/drawer_list_tile.dart';
+import 'package:diary/widgets/drawer/drawer_logo_image.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 

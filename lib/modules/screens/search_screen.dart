@@ -1,6 +1,7 @@
 import 'package:diary/modules/screens/today_screen.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 
 class SearchScreen extends StatefulWidget {
   const SearchScreen({super.key});
@@ -18,12 +19,11 @@ class _SearchScreenState extends State<SearchScreen> {
           backgroundColor: Colors.yellow,
           leading: IconButton(
               onPressed: () {
-                Navigator.pushReplacement(
-                  context,
-                  CupertinoPageRoute(
-                    builder: (context) => TodayScreen(),
-                  ),
-                );
+                if (GoRouter.of(context).routerDelegate.currentConfiguration.fullPath == '/today/search') {
+                  context.go('/today');
+                } else if (GoRouter.of(context).routerDelegate.currentConfiguration.fullPath == '/calendar/search') {
+                  context.go('/calendar');
+                }
               },
               icon: Icon(Icons.arrow_back_ios_new_sharp)),
         ),
