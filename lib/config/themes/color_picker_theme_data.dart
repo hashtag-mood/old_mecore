@@ -1,7 +1,6 @@
-import 'package:diary/config/themes/theme_data.dart';
 import 'package:flutter/material.dart';
 
-Map<String, Color> _whiteColors = {
+Map<String, Color> whiteColors = {
   'white': Color(0xffFFFFFF),
   'bright silver': Color(0xffF8F8F8),
   'light silver': Color(0xffF5F5F5),
@@ -12,7 +11,7 @@ Map<String, Color> _whiteColors = {
   'dark silver': Color(0xffDBDBDB),
 };
 
-Map<String, Color> _vividRedColors = {
+Map<String, Color> vividRedColors = {
   'red': Color(0xffFF3E3E),
   'bright red': Color(0xffFFD2D2),
   'light red': Color(0xffFFC8C8),
@@ -23,7 +22,7 @@ Map<String, Color> _vividRedColors = {
   'dark red': Color(0xffFF4949),
 };
 
-Map<String, Color> _mutedRedColors = {
+Map<String, Color> mutedRedColors = {
   'red': Color(0xffC90000),
   'bright red': Color(0xffDC4D4D),
   'light red': Color(0xffD44646),
@@ -34,7 +33,7 @@ Map<String, Color> _mutedRedColors = {
   'dark red': Color(0xff8E1F1F),
 };
 
-Map<String, Color> _orangeColors = {
+Map<String, Color> orangeColors = {
   'orange': Color(0xffFF7B00),
   'bright orange': Color(0xffFFDCB4),
   'light orange': Color(0xffFFD7A9),
@@ -45,7 +44,7 @@ Map<String, Color> _orangeColors = {
   'dark orange': Color(0xffFF8A1C),
 };
 
-Map<String, Color> _yellowColors = {
+Map<String, Color> yellowColors = {
   'yellow': Color(0xffFFE100),
   'bright yellow': Color(0xffFFF8BF),
   'light yellow': Color(0xffFFF5A7),
@@ -56,7 +55,7 @@ Map<String, Color> _yellowColors = {
   'dark yellow': Color(0xffB48100),
 };
 
-Map<String, Color> _limeGreenColors = {
+Map<String, Color> limeGreenColors = {
   'green': Color(0xffE1FF80),
   'bright green': Color(0xffEBFFBD),
   'light green': Color(0xffDBFF8D),
@@ -67,7 +66,7 @@ Map<String, Color> _limeGreenColors = {
   'dark green': Color(0xff7BB400),
 };
 
-Map<String, Color> _deepGreenColors = {
+Map<String, Color> deepGreenColors = {
   'green': Color(0xff208922),
   'bright green': Color(0xffBCE0A7),
   'light green': Color(0xffA2CE86),
@@ -78,7 +77,7 @@ Map<String, Color> _deepGreenColors = {
   'dark green': Color(0xff235A00),
 };
 
-Map<String, Color> _cyanColors = {
+Map<String, Color> cyanColors = {
   'cyan': Color(0xff7AECC2),
   'bright cyan': Color(0xffCEF6E8),
   'light cyan': Color(0xffCBFFEC),
@@ -89,7 +88,7 @@ Map<String, Color> _cyanColors = {
   'dark cyan': Color(0xff40BAAD),
 };
 
-Map<String, Color> _skyBlueColors = {
+Map<String, Color> skyBlueColors = {
   'blue': Color(0xff5BDBFF),
   'bright blue': Color(0xffE4FAFF),
   'light blue': Color(0xffDDF9FF),
@@ -100,7 +99,7 @@ Map<String, Color> _skyBlueColors = {
   'dark blue': Color(0xff00ADF1),
 };
 
-Map<String, Color> _lightBlueColors = {
+Map<String, Color> lightBlueColors = {
   'blue': Color(0xff87C5FF),
   'bright blue': Color(0xffE3F1FF),
   'light blue': Color(0xffD4EAFF),
@@ -111,18 +110,18 @@ Map<String, Color> _lightBlueColors = {
   'dark blue': Color(0xff0988FF),
 };
 
-Map<String, Color> _deepBlueColors = {
-  '': Color(0xff4988FF),
-  'bright': Color(0xffC8DBFF),
-  'light': Color(0xffB0CAFB),
-  'soft': Color(0xff96B9FA),
-  'standard': Color(0xff7AA8FD),
-  'deep': Color(0xff5590FD),
-  'rich': Color(0xff004FE1),
-  'dark': Color(0xff001DAC),
+Map<String, Color> deepBlueColors = {
+  'blue': Color(0xff4988FF),
+  'bright blue': Color(0xffC8DBFF),
+  'light blue': Color(0xffB0CAFB),
+  'soft blue': Color(0xff96B9FA),
+  'standard blue': Color(0xff7AA8FD),
+  'deep blue': Color(0xff5590FD),
+  'rich blue': Color(0xff004FE1),
+  'dark blue': Color(0xff001DAC),
 };
 
-Map<String, Color> _purpleColors = {
+Map<String, Color> purpleColors = {
   'purple': Color(0xffC78CFF),
   'bright purple': Color(0xffF4ECFF),
   'light purple': Color(0xffEAD7FF),
@@ -133,7 +132,7 @@ Map<String, Color> _purpleColors = {
   'dark purple': Color(0xff7F1ADE),
 };
 
-Map<String, Color> _pinkColors = {
+Map<String, Color> pinkColors = {
   'pink': Color(0xffFF5197),
   'bright pink': Color(0xffFFE4EF),
   'light pink': Color(0xffF5D9E4),
@@ -144,28 +143,26 @@ Map<String, Color> _pinkColors = {
   'dark pink': Color(0xffFF76AD),
 };
 
-List<Map<String, Color>> _colorPickerColors = [
-  _pinkColors,
-  _whiteColors,
-  _vividRedColors,
-  _mutedRedColors,
-  _orangeColors,
-  _yellowColors,
-  _limeGreenColors,
-  _deepGreenColors,
-  _cyanColors,
-  _skyBlueColors,
-  _lightBlueColors,
-  _deepBlueColors,
-  _purpleColors,
+List<Map<String, Color>> colorPickerColors = [
+  pinkColors,
+  whiteColors,
+  vividRedColors,
+  mutedRedColors,
+  orangeColors,
+  yellowColors,
+  limeGreenColors,
+  deepGreenColors,
+  cyanColors,
+  skyBlueColors,
+  lightBlueColors,
+  deepBlueColors,
+  purpleColors,
 ];
 
 List<Color> everyColors() {
   List<Color> allColors = [];
-  for (Map<String, Color> map in _colorPickerColors) {
+  for (Map<String, Color> map in colorPickerColors) {
     allColors.addAll(map.values);
   }
   return allColors;
 }
-
-List<Map> get colorPickerColors => _colorPickerColors;

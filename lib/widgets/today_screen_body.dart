@@ -87,7 +87,7 @@ class _TodayScreenBodyState extends State<TodayScreenBody> {
                                       child: Align(
                                         alignment: Alignment.centerRight,
                                         child: CupertinoTextField.borderless(
-                                          keyboardType: TextInputType.number,
+                                          keyboardType: TextInputType.numberWithOptions(decimal: true),
                                           inputFormatters: [
                                             FilteringTextInputFormatter.digitsOnly,
                                             NumberFormatter(),
@@ -138,7 +138,7 @@ class _TodayScreenBodyState extends State<TodayScreenBody> {
                                       child: Align(
                                         alignment: Alignment.centerRight,
                                         child: CupertinoTextField.borderless(
-                                          keyboardType: TextInputType.number,
+                                          keyboardType: TextInputType.numberWithOptions(decimal: true),
                                           inputFormatters: [
                                             FilteringTextInputFormatter.digitsOnly,
                                             NumberFormatter(),

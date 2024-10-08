@@ -83,12 +83,16 @@ final _router = GoRouter(
           routes: [
             GoRoute(
               path: '/journal',
-              builder: (context, state) => JournalScreen(),
+              builder: (context, state) => JournalScreen(
+                recordPath: '/record',
+                searchPath: '/search',
+              ),
               routes: [
                 GoRoute(
                   path: 'record',
                   builder: (context, state) => TodayRecordScreen(),
-                )
+                ),
+                GoRoute(path: 'search', builder: (context, state) => SearchScreen(),),
               ],
             ),
           ],
@@ -104,7 +108,6 @@ final _router = GoRouter(
         ),
       ],
     ),
-    GoRoute(path: '/search', builder: (context, state) => SearchScreen(),),
   ],
 );
 

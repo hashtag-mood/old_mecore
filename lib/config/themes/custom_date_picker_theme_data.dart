@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 ThemeData getCustomDatePickerThemeData() {
   return ThemeData().copyWith(
     datePickerTheme: DatePickerThemeData(
+
       headerHelpStyle: const TextStyle(
         fontFamily: 'Interop Regular',
       ),
@@ -17,11 +18,6 @@ ThemeData getCustomDatePickerThemeData() {
           color: blackColor,
         ),
       ),
-      // dayShape: WidgetStatePropertyAll(
-      //   CircleBorder(
-      //     eccentricity: double.minPositive,
-      //   ),
-      // ),
       dayShape: WidgetStatePropertyAll(
         RoundedRectangleBorder(
           borderRadius: BorderRadius.zero,

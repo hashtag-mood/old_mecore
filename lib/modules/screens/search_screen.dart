@@ -23,6 +23,8 @@ class _SearchScreenState extends State<SearchScreen> {
                   context.go('/today');
                 } else if (GoRouter.of(context).routerDelegate.currentConfiguration.fullPath == '/calendar/search') {
                   context.go('/calendar');
+                } else if (GoRouter.of(context).routerDelegate.currentConfiguration.fullPath == '/journal/search') {
+                  context.go('/journal');
                 }
               },
               icon: Icon(Icons.arrow_back_ios_new_sharp)),

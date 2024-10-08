@@ -1,7 +1,7 @@
 import 'package:diary/config/themes/theme_data.dart';
-import 'package:diary/widgets/calendar_screen_appbar.dart';
+import 'package:diary/widgets/appbar/calendar_screen_appbar.dart';
 import 'package:diary/utils/utils.dart';
-import 'package:diary/widgets/calendar_screen_drawer.dart';
+import 'package:diary/widgets/drawer/calendar_screen_drawer.dart';
 import 'package:flutter/material.dart';
 
 class CalendarScreen extends StatefulWidget {

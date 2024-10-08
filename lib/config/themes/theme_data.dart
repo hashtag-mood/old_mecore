@@ -8,7 +8,7 @@ final backgroundColor = Color(0xFFFFFFFF);
 
 /// color: black, width: 1
 final mainBorderSide = BorderSide(
-  color: Color(0xFF000000),
+  color: blackColor,
   width: 1,
 );
 
@@ -29,7 +29,7 @@ TextStyle dateTextStyle(BuildContext context) {
   return TextStyle(
       fontFamily: 'Unbounded SemiBold',
       fontSize: appbarLength(context) * 0.38,
-      color: Color(0xFF000000));
+      color: blackColor);
 }
 
 /// fontSize
@@ -70,3 +70,14 @@ ThemeData customThemeData() {
 }
 
 final textSilverColor = Color(0xffCBCBCB);
+
+final textDarkSilverColor = Color(0xffb8b8b8);
+
+double recordCellHeight(BuildContext context) {
+  return (MediaQuery.of(context).size.height -
+      MediaQuery.of(context).padding.top -
+      MediaQuery.of(context).padding.bottom -
+      appbarLength(context) * 2 -
+      2) /
+      12;
+}
