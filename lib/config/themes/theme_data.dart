@@ -71,7 +71,7 @@ ThemeData customThemeData() {
 
 final textSilverColor = Color(0xffCBCBCB);
 
-final textDarkSilverColor = Color(0xffb8b8b8);
+final textDarkSilverColor = Color(0xff9c9c9c);
 
 double recordCellHeight(BuildContext context) {
   return (MediaQuery.of(context).size.height -
@@ -81,3 +81,7 @@ double recordCellHeight(BuildContext context) {
       2) /
       12;
 }
+
+final saturdayColor = Color(0xff1030BA);
+
+final sundayColor = Color(0xffD42A00);

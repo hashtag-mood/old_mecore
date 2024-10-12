@@ -35,24 +35,7 @@ class _TodayScreenState extends State<TodayScreen> {
             flexibleSpace: TodayScreenAppbar(),
           ),
         ),
-        body: MultiBlocProvider(
-          providers: [
-            BlocProvider(
-              create: (context) => WeatherIconCubit(
-                WeatherIcon(
-                  unselected: Text(''),
-                  selected: Text(''),
-                ),
-              ),
-            ),
-            BlocProvider(
-              create: (context) => HalfHourColorCellsCubit(
-                HalfHourColorCells(color: backgroundColor, isSelected: false),
-              ),
-            )
-          ],
-          child: TodayScreenBody(),
-        ),
+        body: TodayScreenBody(),
       ),
     );
   }

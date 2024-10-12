@@ -5,7 +5,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 class WeatherIconCubit extends Cubit<WeatherIcon> {
   WeatherIconCubit(super.initialState);
 
-  List<WeatherIcon> WeatherIconList = [
+  List<WeatherIcon> weatherIconList = [
     WeatherIcon(
       unselected: Text(
         '🌞',
@@ -79,15 +79,18 @@ class WeatherIconCubit extends Cubit<WeatherIcon> {
   ];
 
   String unselectedText(int index) {
-    return WeatherIconList[index].unselected.data ?? '';
+    return weatherIconList[index].unselected.data ?? '';
   }
 
   String selectedText(int index) {
-    return WeatherIconList[index].selected.data ?? '';
+    return weatherIconList[index].selected.data ?? '';
   }
 
   void toggleWeatherIcon(int index) {
-    WeatherIconList[index].isSwitched();
-    emit(state);
+    List<WeatherIcon> copyWithList = List<WeatherIcon>.from(weatherIconList);
+    copyWithList[index].isSwitched();
+    emit(WeatherIcon(unselected: copyWithList[index].unselected, selected: copyWithList[index].selected));
+    // WeatherIconList[index].isSwitched();
+    // emit(state);
   }
 }

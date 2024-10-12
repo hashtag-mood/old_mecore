@@ -42,11 +42,11 @@ class _WeatherIconContainerState extends State<WeatherIconContainer> {
                           context
                               .read<WeatherIconCubit>()
                               .toggleWeatherIcon(index);
-                          setState(() {});
+                          //setState(() {});
                         },
                         child: context
                             .read<WeatherIconCubit>()
-                            .WeatherIconList[index]
+                            .weatherIconList[index]
                             .initialText,
                         style: ButtonStyle(
                           padding: WidgetStatePropertyAll(EdgeInsets.zero),

@@ -4,28 +4,18 @@ import 'package:diary/widgets/custom_cupertino_picker.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
+import 'package:intl/intl.dart';
 
-CustomCupertinoDatePicker customCupertinoDatePicker = CustomCupertinoDatePicker();
-
-class CustomCupertinoDatePicker {
+class CupertinoMonthYearPicker {
+  DateTime selectedDate = DateTime.now();
   int selectedMonth = DateTime.now().month;
-  int selectedDay = DateTime.now().day;
+  List<String> months = ['JAN', 'FEB', 'MAR', 'APR', 'MAY', 'JUN',
+    'JUL', 'AUG', 'SEP', 'OCT', 'NOV', 'DEC'];
   int selectedYear = DateTime.now().year;
-
-  // List<int> monthIndex = List.generate(
-  //     12,
-  //     (index) => 1 + index,
-  //   );
-
-  // List<int> dayIndex = List.generate(
-  //     31,
-  //     (index) => 1 + index,
-  //   );
-
   int yearIndex = DateTime.now().year - 1900;
 
-  Future<void> selectDate(
-      BuildContext context, Function(int) onMonthChanged, Function(int) onDayChanged, Function(int) onYearChanged) async {
+  Future<void> selectDate(BuildContext context, Function(int) onMonthChanged,
+      Function(int) onYearChanged, Function(DateTime) onDateChanged) async {
     await showCupertinoModalPopup(
       context: context,
       barrierColor: Colors.transparent,
@@ -43,7 +33,7 @@ class CustomCupertinoDatePicker {
                 Row(
                   children: [
                     SizedBox(
-                      width: appbarLength(context) * 1.5,
+                      width: appbarLength(context) * 2.75,
                       height: appbarLength(context) * 4,
                       child: CustomCupertinoPicker(
                         // month
@@ -58,11 +48,9 @@ class CustomCupertinoDatePicker {
                           (index) {
                             return Align(
                               alignment: Alignment.center,
-                              child: Text(
-                                '${index + 1}',
+                              child: Text(months[index],
                                 style: TextStyle(
-                                  color: blackColor,
-                                  fontFamily: 'Unbounded SemiBold',
+                                  color: blackColor, fontFamily: 'Unbounded SemiBold',
                                 ),
                               ),
                             );
@@ -71,35 +59,7 @@ class CustomCupertinoDatePicker {
                       ),
                     ),
                     SizedBox(
-                      width: appbarLength(context) * 1.5,
-                      height: appbarLength(context) * 4,
-                      child: CustomCupertinoPicker(
-                        // day
-                        itemExtent: appbarLength(context),
-                        itemIndex: selectedDay - 1,
-                        onChangedCallback: (int index) {
-                          selectedDay = index + 1;
-                          onDayChanged(selectedDay);
-                        },
-                        dateTimeList: List.generate(
-                          31,
-                          (index) {
-                            return Align(
-                              alignment: Alignment.center,
-                              child: Text(
-                                '${index + 1}',
-                                style: TextStyle(
-                                  color: blackColor,
-                                  fontFamily: 'Unbounded SemiBold',
-                                ),
-                              ),
-                            );
-                          },
-                        ),
-                      ),
-                    ),
-                    SizedBox(
-                      width: appbarLength(context) * 2.5,
+                      width: appbarLength(context) * 2.75,
                       height: appbarLength(context) * 4,
                       child: CustomCupertinoPicker(
                         // year
@@ -117,8 +77,7 @@ class CustomCupertinoDatePicker {
                               child: Text(
                                 '${1900 + index}',
                                 style: TextStyle(
-                                  color: blackColor,
-                                  fontFamily: 'Unbounded SemiBold',
+                                  color: blackColor, fontFamily: 'Unbounded SemiBold',
                                 ),
                               ),
                             );
@@ -135,6 +94,7 @@ class CustomCupertinoDatePicker {
                     border: Border(top: mainBorderSide),
                   ),
                   child: CupertinoButton(
+                    color: backgroundColor,
                     borderRadius: BorderRadius.zero,
                     child: Text(
                       'DONE',

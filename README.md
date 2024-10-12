@@ -35,8 +35,6 @@ https://www.figma.com/design/4WHyVdzEtiaRpCsR3cP1f6/NEW-ENOUGH?node-id=112-100
 
 🤸🏻‍♀️ today screen 구현 중
 
-💥 image와 border가 겹쳐서 border가 얇게 보이는 이슈 발생
-
 🏃🏻‍♀️ 캘린더별 표시 유무 checkbox로 변경할 것
 
 🏃🏻‍♀️ popup menu button 수정할 것
@@ -46,8 +44,6 @@ https://www.figma.com/design/4WHyVdzEtiaRpCsR3cP1f6/NEW-ENOUGH?node-id=112-100
 🏃🏻‍♀️ 곡 정보의 길이가 overflow되는 경우 animation controller 혹은 marquee 패키지 활용할 것
 
 🏃🏻‍♀️ splash screen 후 지문 및 비밀번호 잠금 화면 여부 고민 중
-
-
 
 🏃🏻‍♀️ platform과 light 및 dark mode 고려할 것
 
