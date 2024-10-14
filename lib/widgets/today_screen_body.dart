@@ -3,6 +3,7 @@ import 'package:diary/config/themes/theme_data.dart';
 import 'package:diary/modules/bloc/half_hour_color_cells_cubit.dart';
 import 'package:diary/modules/models/half_hour_color_cells.dart';
 import 'package:diary/utils/utils.dart';
+import 'package:diary/widgets/custom_emoji_container.dart';
 import 'package:diary/widgets/number_formatter.dart';
 import 'package:diary/widgets/weather_icon_container.dart';
 import 'package:flutter/cupertino.dart';
@@ -35,26 +36,7 @@ class _TodayScreenBodyState extends State<TodayScreenBody> {
                     WeatherIconContainer(),
                     Row(
                       children: [
-                        Container(
-                          width: appbarLength(context) * 5 / 7 * 2 - 1.3,
-                          height: musicContainerHeight(context),
-                          child: TextButton(
-                            onPressed: () {},
-                            style: ButtonStyle(
-                              overlayColor:
-                                  WidgetStatePropertyAll(Colors.transparent),
-                            ),
-                            child: Text(
-                              '🤸🏻‍♀️',
-                              style: TextStyle(
-                                fontSize: 25,
-                              ),
-                            ),
-                          ),
-                          decoration: BoxDecoration(
-                            color: backgroundColor,
-                          ),
-                        ),
+                        CustomEmojiContainer(),
                         Container(
                           width: appbarLength(context) * 5 / 7 * 5 + 0.3,
                           height: musicContainerHeight(context),
@@ -87,9 +69,12 @@ class _TodayScreenBodyState extends State<TodayScreenBody> {
                                       child: Align(
                                         alignment: Alignment.centerRight,
                                         child: CupertinoTextField.borderless(
-                                          keyboardType: TextInputType.numberWithOptions(decimal: true),
+                                          keyboardType:
+                                              TextInputType.numberWithOptions(
+                                                  decimal: true),
                                           inputFormatters: [
-                                            FilteringTextInputFormatter.digitsOnly,
+                                            FilteringTextInputFormatter
+                                                .digitsOnly,
                                             NumberFormatter(),
                                           ],
                                           maxLength: 17,
@@ -106,10 +91,18 @@ class _TodayScreenBodyState extends State<TodayScreenBody> {
                                     ),
                                     Container(
                                       margin: EdgeInsets.zero,
-                                      width: appbarLength(context) * 5/7 * 0.6,
-                                      child: Align(alignment: Alignment.centerLeft, child: Text('₩', style: TextStyle(
-                                        fontSize: 15, color: blackColor,
-                                      ),),),
+                                      width:
+                                          appbarLength(context) * 5 / 7 * 0.6,
+                                      child: Align(
+                                        alignment: Alignment.centerLeft,
+                                        child: Text(
+                                          '₩',
+                                          style: TextStyle(
+                                            fontSize: 15,
+                                            color: blackColor,
+                                          ),
+                                        ),
+                                      ),
                                     ),
                                   ],
                                 ),
@@ -138,9 +131,12 @@ class _TodayScreenBodyState extends State<TodayScreenBody> {
                                       child: Align(
                                         alignment: Alignment.centerRight,
                                         child: CupertinoTextField.borderless(
-                                          keyboardType: TextInputType.numberWithOptions(decimal: true),
+                                          keyboardType:
+                                              TextInputType.numberWithOptions(
+                                                  decimal: true),
                                           inputFormatters: [
-                                            FilteringTextInputFormatter.digitsOnly,
+                                            FilteringTextInputFormatter
+                                                .digitsOnly,
                                             NumberFormatter(),
                                           ],
                                           maxLength: 17,
@@ -157,10 +153,18 @@ class _TodayScreenBodyState extends State<TodayScreenBody> {
                                     ),
                                     Container(
                                       margin: EdgeInsets.zero,
-                                      width: appbarLength(context) * 5/7 * 0.6,
-                                      child: Align(alignment: Alignment.centerLeft, child: Text('₩', style: TextStyle(
-                                        fontSize: 15, color: blackColor,
-                                      ),),),
+                                      width:
+                                          appbarLength(context) * 5 / 7 * 0.6,
+                                      child: Align(
+                                        alignment: Alignment.centerLeft,
+                                        child: Text(
+                                          '₩',
+                                          style: TextStyle(
+                                            fontSize: 15,
+                                            color: blackColor,
+                                          ),
+                                        ),
+                                      ),
                                     ),
                                   ],
                                 ),

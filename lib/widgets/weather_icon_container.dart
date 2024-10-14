@@ -5,14 +5,9 @@ import 'package:diary/utils/utils.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-class WeatherIconContainer extends StatefulWidget {
+class WeatherIconContainer extends StatelessWidget {
   const WeatherIconContainer({super.key});
 
-  @override
-  State<WeatherIconContainer> createState() => _WeatherIconContainerState();
-}
-
-class _WeatherIconContainerState extends State<WeatherIconContainer> {
   @override
   Widget build(BuildContext context) {
     return Container(

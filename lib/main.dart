@@ -22,7 +22,9 @@ class Diary extends StatelessWidget {
   Widget build(BuildContext context) {
     return MultiBlocProvider(
       providers: [
-        BlocProvider(create: (context) => MonthYearCubit(),),
+        BlocProvider(
+          create: (context) => MonthYearCubit(),
+        ),
         BlocProvider(
           create: (context) => WeatherIconCubit(
             WeatherIcon(
@@ -39,6 +41,17 @@ class Diary extends StatelessWidget {
       ],
       child: MaterialApp.router(
         debugShowCheckedModeBanner: false,
+        locale: Locale('ko', ''),
+        supportedLocales: [
+          Locale('en', ''),
+          Locale('ko', ''),
+          Locale('ja', ''),
+        ],
+        localizationsDelegates: [
+          GlobalWidgetsLocalizations.delegate,
+          GlobalMaterialLocalizations.delegate,
+          GlobalCupertinoLocalizations.delegate,
+        ],
         theme: ThemeData(
           fontFamily: 'Interop Regular',
           cupertinoOverrideTheme: CupertinoThemeData(

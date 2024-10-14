@@ -25,6 +25,8 @@ class TodayRecordScreen extends StatefulWidget {
 }
 
 class _TodayRecordScreenState extends State<TodayRecordScreen> {
+  DateTime? _selectedDay;
+
   @override
   Widget build(BuildContext context) {
     return SafeArea(
@@ -44,36 +46,87 @@ class _TodayRecordScreenState extends State<TodayRecordScreen> {
                 context.read<MonthYearCubit>().updateYear(focusedDay.year);
                 context.read<MonthYearCubit>().updateMonth(focusedDay.month);
               },
-              firstDay: DateTime(1899, 12),
+              firstDay: DateTime(1900, 1),
               lastDay: DateTime(2101, 1),
               headerVisible: false,
+              selectedDayPredicate: (day) {
+                return isSameDay(_selectedDay, day);
+              },
+              onDaySelected: (selectedDay, focusedDay) {
+                setState(() {
+                  _selectedDay = selectedDay;
+                  state.dateTime = focusedDay;
+                });
+              },
+              locale: Localizations.localeOf(context).toString(),
               daysOfWeekStyle: DaysOfWeekStyle(
                 dowTextFormatter: (date, locale) {
+                  if (locale == 'en') {
+                    return DateFormat.E('en').format(date)[0];
+                  } else if (locale == 'ko') {
+                    return DateFormat.E('ko').format(date)[0];
+                  } else if (locale == 'ja') {
+                    return DateFormat.E('ja').format(date)[0];
+                  }
                   return DateFormat.E().format(date)[0];
                 },
-                weekdayStyle: TextStyle(
-                  color: blackColor,
-                  fontFamily: 'Public Sans',
-                  fontVariations: [
-                    FontVariation('wght', 300),
-                  ],
-                  fontSize: 17,
-                  letterSpacing: 1,
-                ),
-                weekendStyle: TextStyle(
-                  color: blackColor,
-                  fontFamily: 'Public Sans',
-                  fontVariations: [
-                    FontVariation('wght', 300),
-                  ],
-                  fontSize: 17,
-                  letterSpacing: 1,
-                ),
+                weekdayStyle:
+                    (Localizations.localeOf(context).languageCode == 'ja')
+                        ? TextStyle(
+                            color: blackColor,
+                            fontFamily: 'Pretendard JP',
+                            fontVariations: [
+                              FontVariation('wght', 300),
+                            ],
+                            fontSize: 18,
+                            letterSpacing: 1,
+                          )
+                        : TextStyle(
+                            color: blackColor,
+                            fontFamily: 'Public Sans',
+                            fontVariations: [
+                              FontVariation('wght', 300),
+                            ],
+                            fontSize: 18,
+                            letterSpacing: 1,
+                          ),
+                weekendStyle:
+                    (Localizations.localeOf(context).languageCode == 'ja')
+                        ? TextStyle(
+                            color: blackColor,
+                            fontFamily: 'Pretendard JP',
+                            fontVariations: [
+                              FontVariation('wght', 300),
+                            ],
+                            fontSize: 18,
+                            letterSpacing: 1,
+                          )
+                        : TextStyle(
+                            color: blackColor,
+                            fontFamily: 'Public Sans',
+                            fontVariations: [
+                              FontVariation('wght', 300),
+                            ],
+                            fontSize: 17,
+                            letterSpacing: 1,
+                          ),
                 decoration: BoxDecoration(
                   border: Border(bottom: mainBorderSide),
+                  color: backgroundColor,
                 ),
               ),
+              calendarBuilders: CalendarBuilders(
+                markerBuilder: (context, day, events) {},
+              ),
               calendarStyle: CalendarStyle(
+                rowDecoration: BoxDecoration(
+                  color: backgroundColor,
+                ),
+                todayDecoration: BoxDecoration(
+                  shape: BoxShape.circle,
+                  color: lightPinkColor,
+                  border: Border.all(color: blackColor, width: 1),
+                ),
                 defaultTextStyle: TextStyle(
                   color: blackColor,
                   fontFamily: 'Public Sans',
@@ -93,7 +146,7 @@ class _TodayRecordScreenState extends State<TodayRecordScreen> {
                   letterSpacing: 1,
                 ),
                 todayTextStyle: TextStyle(
-                  color: backgroundColor,
+                  color: blackColor,
                   fontFamily: 'Public Sans',
                   fontVariations: [
                     FontVariation('wght', 200),
@@ -118,6 +171,20 @@ class _TodayRecordScreenState extends State<TodayRecordScreen> {
                   ],
                   fontSize: 17,
                   letterSpacing: 1,
+                ),
+                selectedTextStyle: TextStyle(
+                  color: blackColor,
+                  fontFamily: 'Public Sans',
+                  fontVariations: [
+                    FontVariation('wght', 200),
+                  ],
+                  fontSize: 17,
+                  letterSpacing: 1,
+                ),
+                selectedDecoration: BoxDecoration(
+                  color: lightSilverColor,
+                  shape: BoxShape.circle,
+                  border: Border.all(color: blackColor, width: 1),
                 ),
                 tableBorder: TableBorder(bottom: mainBorderSide),
               ),

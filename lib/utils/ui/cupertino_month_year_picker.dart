@@ -10,11 +10,24 @@ import 'package:go_router/go_router.dart';
 import 'package:intl/intl.dart';
 
 class CupertinoMonthYearPicker {
-  int selectedMonth = DateTime.now().month;
-  List<String> months = ['JAN', 'FEB', 'MAR', 'APR', 'MAY', 'JUN',
-    'JUL', 'AUG', 'SEP', 'OCT', 'NOV', 'DEC'];
-  int selectedYear = DateTime.now().year;
-  int yearIndex = DateTime.now().year - 1900;
+  // int selectedMonth = DateTime.now().month;
+  List<String> months = [
+    'JAN',
+    'FEB',
+    'MAR',
+    'APR',
+    'MAY',
+    'JUN',
+    'JUL',
+    'AUG',
+    'SEP',
+    'OCT',
+    'NOV',
+    'DEC'
+  ];
+
+  // int selectedYear = DateTime.now().year;
+  // int yearIndex = DateTime.now().year - 1900;
 
   Future<void> selectDate(BuildContext context, Function(int) onMonthChanged,
       Function(int) onYearChanged) async {
@@ -23,101 +36,150 @@ class CupertinoMonthYearPicker {
       barrierColor: Colors.transparent,
       builder: (context) {
         return BlocBuilder<MonthYearCubit, MonthYear>(
-          builder: (context, state) {
-            return Center(
-              child: Container(
-                width: appbarLength(context) * 5.5 + 2,
-                height: appbarLength(context) * 5 + 2,
-                decoration: BoxDecoration(
-                  border: Border.all(width: 1, color: blackColor),
-                  color: backgroundColor,
-                ),
-                child: Column(
-                  children: [
-                    Row(
-                      children: [
-                        SizedBox(
-                          width: appbarLength(context) * 2.75,
-                          height: appbarLength(context) * 4,
-                          child: CustomCupertinoPicker(
-                            // month
-                            itemExtent: appbarLength(context),
-                            itemIndex: selectedMonth - 1, // TODO Question
-                            onChangedCallback: (int index) {
-                              selectedMonth = index + 1;
-                              context.read<MonthYearCubit>().updateMonth(selectedMonth);
-                            },
-                            dateTimeList: List.generate(
-                              12,
-                              (index) {
-                                return Align(
-                                  alignment: Alignment.center,
-                                  child: Text(months[index],
-                                    style: TextStyle(
-                                      color: blackColor, fontFamily: 'Unbounded SemiBold',
-                                    ),
+            builder: (context, state) {
+          int selectedMonth = state.dateTime.month;
+          int selectedYear = state.dateTime.year;
+          int yearIndex = selectedYear - 1900;
+          FixedExtentScrollController yearController =
+              FixedExtentScrollController(initialItem: yearIndex);
+          FixedExtentScrollController monthController =
+              FixedExtentScrollController(initialItem: selectedMonth - 1);
+          return Center(
+            child: Container(
+              width: appbarLength(context) * 5.5 + 2,
+              height: appbarLength(context) * 5 + 2,
+              decoration: BoxDecoration(
+                border: Border.all(width: 1, color: blackColor),
+                color: backgroundColor,
+              ),
+              child: Column(
+                children: [
+                  Row(
+                    children: [
+                      SizedBox(
+                        width: appbarLength(context) * 2.75,
+                        height: appbarLength(context) * 4,
+                        child: CustomCupertinoPicker(
+                          // month
+                          itemExtent: appbarLength(context),
+                          controller: monthController,
+                          onChangedCallback: (int index) {
+                            selectedMonth = index + 1;
+                            context
+                                .read<MonthYearCubit>()
+                                .updateMonth(selectedMonth);
+                          },
+                          dateTimeList: List.generate(
+                            12,
+                            (index) {
+                              return Align(
+                                alignment: Alignment.center,
+                                child: Text(
+                                  months[index],
+                                  style: TextStyle(
+                                    color: blackColor,
+                                    fontFamily: 'Unbounded SemiBold',
                                   ),
-                                );
-                              },
-                            ),
+                                ),
+                              );
+                            },
                           ),
                         ),
-                        SizedBox(
-                          width: appbarLength(context) * 2.75,
-                          height: appbarLength(context) * 4,
-                          child: CustomCupertinoPicker(
-                            // year
-                            itemExtent: appbarLength(context),
-                            itemIndex: yearIndex,
-                            onChangedCallback: (int index) {
-                              selectedYear = 1900 + index;
-                              context.read<MonthYearCubit>().updateYear(selectedYear);
-                            },
-                            dateTimeList: List.generate(
-                              201,
-                              (index) {
-                                return Align(
-                                  alignment: Alignment.center,
-                                  child: Text(
-                                    '${1900 + index}',
-                                    style: TextStyle(
-                                      color: blackColor, fontFamily: 'Unbounded SemiBold',
-                                    ),
+                      ),
+                      SizedBox(
+                        width: appbarLength(context) * 2.75,
+                        height: appbarLength(context) * 4,
+                        child: CustomCupertinoPicker(
+                          // year
+                          itemExtent: appbarLength(context),
+                          controller: yearController,
+                          onChangedCallback: (int index) {
+                            selectedYear = 1900 + index;
+                            context
+                                .read<MonthYearCubit>()
+                                .updateYear(selectedYear);
+                          },
+                          dateTimeList: List.generate(
+                            201,
+                            (index) {
+                              return Align(
+                                alignment: Alignment.center,
+                                child: Text(
+                                  '${1900 + index}',
+                                  style: TextStyle(
+                                    color: blackColor,
+                                    fontFamily: 'Unbounded SemiBold',
                                   ),
-                                );
-                              },
+                                ),
+                              );
+                            },
+                          ),
+                        ),
+                      ),
+                    ],
+                  ),
+                  Container(
+                    height: appbarLength(context),
+                    decoration: BoxDecoration(
+                      border: Border(top: mainBorderSide),
+                    ),
+                    child: Row(
+                      children: [
+                        Container(
+                          width: appbarLength(context) * 2.75,
+                          height: appbarLength(context),
+                          decoration: BoxDecoration(
+                            border: Border(right: mainBorderSide),
+                          ),
+                          child: CupertinoButton(
+                              borderRadius: BorderRadius.zero,
+                              child: Text(
+                                'TODAY',
+                                style: TextStyle(
+                                  fontFamily: 'Interop Regular',
+                                  color: blackColor,
+                                  fontSize: 16,
+                                ),
+                              ),
+                              onPressed: () {
+                                context
+                                    .read<MonthYearCubit>()
+                                    .updateYear(DateTime.now().year);
+                                context
+                                    .read<MonthYearCubit>()
+                                    .updateMonth(DateTime.now().month);
+                                yearController
+                                    .jumpToItem(DateTime.now().year - 1900);
+                                monthController
+                                    .jumpToItem(DateTime.now().month - 1);
+                              }),
+                        ),
+                        Container(
+                          width: appbarLength(context) * 2.75,
+                          height: appbarLength(context),
+                          child: CupertinoButton(
+                            borderRadius: BorderRadius.zero,
+                            child: Text(
+                              'DONE',
+                              style: TextStyle(
+                                fontFamily: 'Interop Regular',
+                                color: blackColor,
+                                fontSize: 16,
+                              ),
                             ),
+                            onPressed: () {
+                              context.pop();
+                            },
                           ),
                         ),
                       ],
                     ),
-                    Container(
-                      width: appbarLength(context) * 5.5,
-                      height: appbarLength(context),
-                      decoration: BoxDecoration(
-                        border: Border(top: mainBorderSide),
-                      ),
-                      child: CupertinoButton(
-                        borderRadius: BorderRadius.zero,
-                        child: Text(
-                          'DONE',
-                          style: TextStyle(
-                            fontFamily: 'Interop Regular',
-                            color: blackColor,
-                            fontSize: 20,
-                          ),
-                        ),
-                        onPressed: () {
-                          context.pop();
-                        },
-                      ),
-                    ),
-                  ],
-                ),
+                  ),
+                ],
               ),
-            );
-          }
-        );
+            ),
+          );
+        });
       },
     );
   }

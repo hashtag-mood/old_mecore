@@ -69,6 +69,8 @@ ThemeData customThemeData() {
   );
 }
 
+final lightSilverColor = Color(0xffDCDCDC);
+
 final textSilverColor = Color(0xffCBCBCB);
 
 final textDarkSilverColor = Color(0xff9c9c9c);

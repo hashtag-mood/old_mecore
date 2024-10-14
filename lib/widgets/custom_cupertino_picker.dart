@@ -5,7 +5,7 @@ import 'package:flutter/material.dart';
 
 class CustomCupertinoPicker extends StatelessWidget {
   final double itemExtent;
-  final int itemIndex;
+  final FixedExtentScrollController controller;
   Function(int) onChangedCallback;
   List<Widget> dateTimeList;
 
@@ -13,7 +13,7 @@ class CustomCupertinoPicker extends StatelessWidget {
       {super.key,
       required this.itemExtent,
       required this.onChangedCallback,
-      required this.itemIndex,
+      required this.controller,
       required this.dateTimeList});
 
   @override
@@ -26,7 +26,7 @@ class CustomCupertinoPicker extends StatelessWidget {
         ),
       ),
       backgroundColor: backgroundColor,
-      scrollController: FixedExtentScrollController(initialItem: itemIndex),
+      scrollController: controller,
       itemExtent: itemExtent,
       onSelectedItemChanged: onChangedCallback,
       children: dateTimeList,

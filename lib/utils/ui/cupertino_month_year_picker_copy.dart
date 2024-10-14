@@ -38,7 +38,7 @@ class CupertinoMonthYearPicker {
                       child: CustomCupertinoPicker(
                         // month
                         itemExtent: appbarLength(context),
-                        itemIndex: selectedMonth - 1, // TODO Question
+                        controller: FixedExtentScrollController(initialItem: selectedMonth - 1), // TODO Question
                         onChangedCallback: (int index) {
                           selectedMonth = index + 1;
                           onMonthChanged(selectedMonth);
@@ -64,7 +64,7 @@ class CupertinoMonthYearPicker {
                       child: CustomCupertinoPicker(
                         // year
                         itemExtent: appbarLength(context),
-                        itemIndex: yearIndex,
+                        controller: FixedExtentScrollController(initialItem: yearIndex),
                         onChangedCallback: (int index) {
                           selectedYear = 1900 + index;
                           onYearChanged(selectedYear);

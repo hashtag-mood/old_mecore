@@ -18,6 +18,7 @@ class RecordScreenAppBar extends StatefulWidget {
 }
 
 class _RecordScreenAppBarState extends State<RecordScreenAppBar> {
+
   @override
   Widget build(BuildContext context) {
     return AppBar(
