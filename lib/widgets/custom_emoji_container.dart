@@ -43,18 +43,18 @@ class _CustomEmojiContainerState extends State<CustomEmojiContainer> {
   void _showEmojiKeyboard(BuildContext context) {
     showDialog(
       context: context,
+      barrierColor: Colors.transparent,
       builder: (BuildContext context) {
         return AlertDialog(
           shape: Border.all(width: 1, color: blackColor),
           backgroundColor: backgroundColor,
-          actionsPadding: EdgeInsets.only(bottom: 10),
-          contentPadding: EdgeInsets.all(10),
+          actionsPadding: EdgeInsets.zero,
+          contentPadding: EdgeInsets.all(5),
           title: null,
           content: Container(
-            width: 500,
-            height: 300,
+            width: appbarLength(context) * 6 - 19,
+            height: appbarLength(context) * 6.3,
             padding: EdgeInsets.zero,
-
             child: EmojiPicker(
               onEmojiSelected: (category, emoji) {
                 setState(() {
@@ -104,25 +104,49 @@ class _CustomEmojiContainerState extends State<CustomEmojiContainer> {
               // ),
             ),
           ),
+          actionsAlignment: MainAxisAlignment.spaceEvenly,
           actions: [
-            TextButton(
-              onPressed: () {
-                setState(() {
-                  selectedEmoji = '';
-                });
-              },
-              child: Text(
-                'CANCEL',
-                style: TextStyle(fontSize: 16, color: blackColor),
+            Container(
+              decoration: BoxDecoration(
+                border: Border(
+                  top: mainBorderSide,
+                ),
               ),
-            ),
-            TextButton(
-              onPressed: () {
-                context.pop();
-              },
-              child: Text(
-                'SELECT',
-                style: TextStyle(fontSize: 16, color: blackColor),
+              child: Row(
+                children: [
+                  Container(
+                    padding: EdgeInsets.zero,
+                    decoration: BoxDecoration(
+                      border: Border(right: mainBorderSide),
+                    ),
+                    width: (appbarLength(context) * 6 - 19) / 2,
+                    height: appbarLength(context) * 4 / 5,
+                    child: CupertinoButton(
+                      onPressed: () {
+                        setState(() {
+                          selectedEmoji = '';
+                        });
+                      },
+                      child: Text(
+                        'CANCEL',
+                        style: TextStyle(fontSize: 16, color: blackColor),
+                      ),
+                    ),
+                  ),
+                  SizedBox(
+                    width: (appbarLength(context) * 6 - 19) / 2,
+                    height: appbarLength(context) * 4 / 5,
+                    child: CupertinoButton(
+                      onPressed: () {
+                        context.pop();
+                      },
+                      child: Text(
+                        'SELECT',
+                        style: TextStyle(fontSize: 16, color: blackColor),
+                      ),
+                    ),
+                  ),
+                ],
               ),
             ),
           ],

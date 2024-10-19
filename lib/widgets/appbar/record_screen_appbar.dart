@@ -1,6 +1,6 @@
 import 'package:diary/config/themes/theme_data.dart';
-import 'package:diary/modules/bloc/month_year_cubit.dart';
-import 'package:diary/modules/models/month_year.dart';
+import 'package:diary/modules/bloc/date_cubit.dart';
+import 'package:diary/modules/models/date.dart';
 import 'package:diary/utils/ui/cupertino_month_year_picker.dart';
 import 'package:diary/utils/ui/custom_year_picker.dart';
 import 'package:diary/utils/utils.dart';
@@ -44,7 +44,7 @@ class _RecordScreenAppBarState extends State<RecordScreenAppBar> {
               iconSize: appbarLength(context) * 0.55,
             ),
           ),
-          BlocBuilder<MonthYearCubit, MonthYear>(builder: (context, state) {
+          BlocBuilder<DateCubit, Date>(builder: (context, state) {
             return SizedBox(
               width: appbarLength(context) * 5,
               height: appbarLength(context),
@@ -56,10 +56,10 @@ class _RecordScreenAppBarState extends State<RecordScreenAppBar> {
                   await CupertinoMonthYearPicker().selectDate(
                     context,
                     (month) {
-                      context.read<MonthYearCubit>().updateMonth(month);
+                      context.read<DateCubit>().updateMonth(month);
                     },
                     (year) {
-                      context.read<MonthYearCubit>().updateYear(year);
+                      context.read<DateCubit>().updateYear(year);
                     },
                   );
                 },

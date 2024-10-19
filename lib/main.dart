@@ -1,7 +1,8 @@
 import 'package:diary/config/routes/routes.dart';
+import 'package:diary/config/themes/color_picker_theme_data.dart';
 import 'package:diary/config/themes/theme_data.dart';
 import 'package:diary/modules/bloc/half_hour_color_cells_cubit.dart';
-import 'package:diary/modules/bloc/month_year_cubit.dart';
+import 'package:diary/modules/bloc/date_cubit.dart';
 import 'package:diary/modules/bloc/weather_icon_cubit.dart';
 import 'package:diary/modules/models/half_hour_color_cells.dart';
 import 'package:diary/modules/models/weather_icon.dart';
@@ -23,7 +24,7 @@ class Diary extends StatelessWidget {
     return MultiBlocProvider(
       providers: [
         BlocProvider(
-          create: (context) => MonthYearCubit(),
+          create: (context) => DateCubit(),
         ),
         BlocProvider(
           create: (context) => WeatherIconCubit(

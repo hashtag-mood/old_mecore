@@ -1,6 +1,6 @@
 import 'package:diary/config/themes/theme_data.dart';
-import 'package:diary/modules/bloc/month_year_cubit.dart';
-import 'package:diary/modules/models/month_year.dart';
+import 'package:diary/modules/bloc/date_cubit.dart';
+import 'package:diary/modules/models/date.dart';
 import 'package:diary/utils/utils.dart';
 import 'package:diary/widgets/custom_cupertino_picker.dart';
 import 'package:flutter/cupertino.dart';
@@ -35,7 +35,7 @@ class CupertinoMonthYearPicker {
       context: context,
       barrierColor: Colors.transparent,
       builder: (context) {
-        return BlocBuilder<MonthYearCubit, MonthYear>(
+        return BlocBuilder<DateCubit, Date>(
             builder: (context, state) {
           int selectedMonth = state.dateTime.month;
           int selectedYear = state.dateTime.year;
@@ -66,7 +66,7 @@ class CupertinoMonthYearPicker {
                           onChangedCallback: (int index) {
                             selectedMonth = index + 1;
                             context
-                                .read<MonthYearCubit>()
+                                .read<DateCubit>()
                                 .updateMonth(selectedMonth);
                           },
                           dateTimeList: List.generate(
@@ -96,7 +96,7 @@ class CupertinoMonthYearPicker {
                           onChangedCallback: (int index) {
                             selectedYear = 1900 + index;
                             context
-                                .read<MonthYearCubit>()
+                                .read<DateCubit>()
                                 .updateYear(selectedYear);
                           },
                           dateTimeList: List.generate(
@@ -143,10 +143,10 @@ class CupertinoMonthYearPicker {
                               ),
                               onPressed: () {
                                 context
-                                    .read<MonthYearCubit>()
+                                    .read<DateCubit>()
                                     .updateYear(DateTime.now().year);
                                 context
-                                    .read<MonthYearCubit>()
+                                    .read<DateCubit>()
                                     .updateMonth(DateTime.now().month);
                                 yearController
                                     .jumpToItem(DateTime.now().year - 1900);

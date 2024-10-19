@@ -59,25 +59,25 @@ final _router = GoRouter(
             ),
           ],
         ),
-        StatefulShellBranch(
-          navigatorKey: _calendarNavigatorKey,
-          routes: [
-            GoRoute(
-              path: '/calendar',
-              builder: (context, state) => CalendarScreen(
-                tasksPath: '/tasks',
-                searchPath: '/search',
-              ),
-              routes: [
-                GoRoute(
-                  path: 'tasks',
-                  builder: (context, state) => TasksScreen(),
-                ),
-                GoRoute(path: 'search', builder: (context, state) => SearchScreen(),),
-              ],
-            ),
-          ],
-        ),
+        // StatefulShellBranch(
+        //   navigatorKey: _calendarNavigatorKey,
+        //   routes: [
+        //     GoRoute(
+        //       path: '/calendar',
+        //       builder: (context, state) => CalendarScreen(
+        //         tasksPath: '/tasks',
+        //         searchPath: '/search',
+        //       ),
+        //       routes: [
+        //         GoRoute(
+        //           path: 'tasks',
+        //           builder: (context, state) => TasksScreen(),
+        //         ),
+        //         GoRoute(path: 'search', builder: (context, state) => SearchScreen(),),
+        //       ],
+        //     ),
+        //   ],
+        // ),
         StatefulShellBranch(
           navigatorKey: _journalNavigatorKey,
           routes: [

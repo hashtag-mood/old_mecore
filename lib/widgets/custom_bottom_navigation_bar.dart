@@ -38,11 +38,11 @@ class CustomBottomNavigationBar extends StatelessWidget {
               label: 'TODAY',
               selectedIcon: Icon(CupertinoIcons.burst_fill),
             ),
-            NavigationDestination(
-              icon: Icon(CupertinoIcons.flag),
-              label: 'CALENDAR',
-              selectedIcon: Icon(CupertinoIcons.flag_fill),
-            ),
+            // NavigationDestination(
+            //   icon: Icon(CupertinoIcons.flag),
+            //   label: 'CALENDAR',
+            //   selectedIcon: Icon(CupertinoIcons.flag_fill),
+            // ),
             NavigationDestination(
               icon: Icon(CupertinoIcons.quote_bubble),
               label: 'JOURNAL',

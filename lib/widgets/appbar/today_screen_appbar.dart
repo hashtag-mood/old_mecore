@@ -1,4 +1,5 @@
 import 'package:diary/config/themes/theme_data.dart';
+import 'package:diary/modules/bloc/date_cubit.dart';
 import 'package:diary/utils/ui/custom_material_date_picker.dart';
 import 'package:diary/utils/ui/custom_cupertino_date_picker.dart';
 import 'package:diary/utils/utils.dart';
@@ -9,6 +10,7 @@ import 'package:diary/widgets/appbar_buttons/appbar_sticker_button.dart';
 import 'package:diary/widgets/appbar_buttons/appbar_user_image.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 class TodayScreenAppbar extends StatefulWidget {
   const TodayScreenAppbar({super.key});
@@ -34,20 +36,14 @@ class _TodayScreenAppbarState extends State<TodayScreenAppbar> {
             onPressedCallback: () async {
               await customCupertinoDatePicker.selectDate(
                 context,
-                (value) {
-                  setState(() {
-                    customCupertinoDatePicker.selectedMonth = value;
-                  });
+                    (month) {
+                  context.read<DateCubit>().updateMonth(month);
                 },
-                (value) {
-                  setState(() {
-                    customCupertinoDatePicker.selectedDay = value;
-                  });
+                    (day) {
+                  context.read<DateCubit>().updateDay(day);
                 },
-                (value) {
-                  setState(() {
-                    customCupertinoDatePicker.selectedYear = value;
-                  });
+                    (year) {
+                  context.read<DateCubit>().updateYear(year);
                 },
               );
               // await customDatePicker.selectDate(context, () {
