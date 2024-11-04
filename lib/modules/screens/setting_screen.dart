@@ -1,4 +1,4 @@
-import 'package:diary/utils/utils.dart';
+import 'package:mecore/utils/utils.dart';
 import 'package:flutter/material.dart';
 
 class SettingScreen extends StatelessWidget {

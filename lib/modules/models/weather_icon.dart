@@ -1,4 +1,4 @@
-import 'package:diary/config/themes/theme_data.dart';
+import 'package:mecore/config/themes/theme_data.dart';
 import 'package:flutter/material.dart';
 
 class WeatherIcon {
@@ -20,6 +20,9 @@ class WeatherIcon {
 
   static TextStyle unselectedTextStyle() {
     return TextStyle(
+      // fontFamily: 'Noto Color Emoji',
+      // fontSize: 20,
+      // foreground: Paint()..colorFilter = ColorFilter.mode(Colors.white, BlendMode.saturation),
       fontFamily: 'Noto Emoji',
       fontSize: 20,
       fontVariations: const [FontVariation('wght', 600)],

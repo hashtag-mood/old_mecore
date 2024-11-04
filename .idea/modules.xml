@@ -2,8 +2,8 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/diary.iml" filepath="$PROJECT_DIR$/diary.iml" />
-      <module fileurl="file://$PROJECT_DIR$/android/diary_android.iml" filepath="$PROJECT_DIR$/android/diary_android.iml" />
+      <module fileurl="file://$PROJECT_DIR$/mecore.iml" filepath="$PROJECT_DIR$/mecore.iml" />
+      <module fileurl="file://$PROJECT_DIR$/android/mecore_android.iml" filepath="$PROJECT_DIR$/android/mecore_android.iml" />
     </modules>
   </component>
 </project>

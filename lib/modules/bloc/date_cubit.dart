@@ -1,4 +1,4 @@
-import 'package:diary/modules/models/date.dart';
+import 'package:mecore/modules/models/date.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 class DateCubit extends Cubit<Date>{

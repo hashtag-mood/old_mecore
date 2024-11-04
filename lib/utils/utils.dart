@@ -1,10 +1,10 @@
 import 'dart:io';
 
-import 'package:diary/config/themes/color_picker_theme_data.dart';
-import 'package:diary/config/themes/theme_data.dart';
-import 'package:diary/modules/screens/today_record_screen.dart';
-import 'package:diary/widgets/appbar/calendar_screen_appbar.dart';
-import 'package:diary/widgets/appbar/today_screen_appbar.dart';
+import 'package:mecore/config/themes/color_picker_theme_data.dart';
+import 'package:mecore/config/themes/theme_data.dart';
+import 'package:mecore/modules/screens/today_record_screen.dart';
+import 'package:mecore/widgets/appbar/calendar_screen_appbar.dart';
+import 'package:mecore/widgets/appbar/today_screen_appbar.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';

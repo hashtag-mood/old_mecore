@@ -1,7 +1,8 @@
-import 'package:diary/utils/utils.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'dart:io';
+
+import 'package:mecore/utils/utils.dart';
 
 /// color: white
 final backgroundColor = Color(0xFFFFFFFF);

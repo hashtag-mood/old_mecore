@@ -1,4 +1,5 @@
-import 'package:diary/utils/utils.dart';
+import 'package:mecore/config/themes/theme_data.dart';
+import 'package:mecore/utils/utils.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
@@ -11,14 +12,15 @@ class AppbarStickerButton extends StatelessWidget {
       flex: 1,
       child: Container(
         height: appbarLength(context),
+        decoration: BoxDecoration(
+          border: Border(right: mainBorderSide),
+        ),
         child: IconButton(
           highlightColor: Colors.transparent,
           alignment: Alignment.center,
           onPressed: () {},
-          icon: Image.asset(
-            'assets/icons/plus_48.png',
-            width: appbarLength(context) * 0.45,
-          ),
+          icon: Icon(CupertinoIcons.lasso),
+          iconSize: appbarLength(context) * 0.55,
         ),
       ),
     );

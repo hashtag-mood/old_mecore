@@ -1,4 +1,5 @@
-import 'package:diary/modules/models/weather_icon.dart';
+import 'package:mecore/config/themes/theme_data.dart';
+import 'package:mecore/modules/models/weather_icon.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -89,7 +90,9 @@ class WeatherIconCubit extends Cubit<WeatherIcon> {
   void toggleWeatherIcon(int index) {
     List<WeatherIcon> copyWithList = List<WeatherIcon>.from(weatherIconList);
     copyWithList[index].isSwitched();
-    emit(WeatherIcon(unselected: copyWithList[index].unselected, selected: copyWithList[index].selected));
+    emit(WeatherIcon(
+        unselected: copyWithList[index].unselected,
+        selected: copyWithList[index].selected));
     // WeatherIconList[index].isSwitched();
     // emit(state);
   }

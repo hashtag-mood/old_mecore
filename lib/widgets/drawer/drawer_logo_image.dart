@@ -1,5 +1,5 @@
-import 'package:diary/config/themes/theme_data.dart';
-import 'package:diary/utils/utils.dart';
+import 'package:mecore/config/themes/theme_data.dart';
+import 'package:mecore/utils/utils.dart';
 import 'package:flutter/material.dart';
 
 class DrawerLogoImage extends StatelessWidget {

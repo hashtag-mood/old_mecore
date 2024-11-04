@@ -1,4 +1,4 @@
-name: diary
+name: mecore
 description: "SeSAC yongsan campus flutter personal project"
 # The following line prevents the package from being accidentally published to
 # pub.dev using `flutter pub publish`. This is preferred for private packages.
@@ -41,9 +41,14 @@ dependencies:
   intl: ^0.19.0
   flutter_calendar_carousel: ^2.4.4
   animated_emoji: ^3.1.0
-  emoji_picker_flutter: ^3.1.0
   responsive_notebook_background: ^1.0.1
   table_calendar: ^3.1.2
+  text_marquee: ^0.0.2
+  marquee: ^2.3.0
+  firebase_core: ^3.6.0
+  twitter_login: ^4.4.2
+  firebase_auth: ^5.3.0
+  flutter_localization: ^0.2.2
 
 dev_dependencies:
   flutter_test:
@@ -73,6 +78,7 @@ flutter:
     - assets/img/
     - assets/icons/
     - assets/json/
+    - assets/brands/
   #   - images/a_dot_ham.jpeg
 
   # An image asset can refer to one or more resolution-specific "variants", see

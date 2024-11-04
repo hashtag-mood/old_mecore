@@ -1,23 +1,28 @@
-import 'package:diary/config/routes/routes.dart';
-import 'package:diary/config/themes/color_picker_theme_data.dart';
-import 'package:diary/config/themes/theme_data.dart';
-import 'package:diary/modules/bloc/half_hour_color_cells_cubit.dart';
-import 'package:diary/modules/bloc/date_cubit.dart';
-import 'package:diary/modules/bloc/weather_icon_cubit.dart';
-import 'package:diary/modules/models/half_hour_color_cells.dart';
-import 'package:diary/modules/models/weather_icon.dart';
-import 'package:diary/modules/screens/today_screen.dart';
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
+import 'package:mecore/config/routes/routes.dart';
+import 'package:mecore/config/themes/theme_data.dart';
+import 'package:mecore/firebase_options.dart';
+import 'package:mecore/modules/bloc/date_cubit.dart';
+import 'package:mecore/modules/bloc/half_hour_color_cells_cubit.dart';
+import 'package:mecore/modules/bloc/text_marquee_cubit.dart';
+import 'package:mecore/modules/bloc/weather_icon_cubit.dart';
+import 'package:mecore/modules/models/half_hour_color_cells.dart';
+import 'package:mecore/modules/models/weather_icon.dart';
 
-void main() {
-  runApp(const Diary());
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp(
+    options: DefaultFirebaseOptions.currentPlatform,
+  );
+  runApp(const mecore());
 }
 
-class Diary extends StatelessWidget {
-  const Diary({super.key});
+class mecore extends StatelessWidget {
+  const mecore({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -36,13 +41,18 @@ class Diary extends StatelessWidget {
         ),
         BlocProvider(
           create: (context) => HalfHourColorCellsCubit(
-            HalfHourColorCells(color: backgroundColor, isSelected: false),
+            HalfHourColorCells(
+                selectedColor: backgroundColor, isSelected: false),
+          ),
+        ),
+        BlocProvider(
+          create: (context) => TextMarqueeCubit(
           ),
         ),
       ],
       child: MaterialApp.router(
         debugShowCheckedModeBanner: false,
-        locale: Locale('ko', ''),
+        locale: Locale('ja', ''),
         supportedLocales: [
           Locale('en', ''),
           Locale('ko', ''),

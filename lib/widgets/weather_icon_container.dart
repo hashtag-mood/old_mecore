@@ -1,7 +1,7 @@
-import 'package:diary/config/themes/theme_data.dart';
-import 'package:diary/modules/bloc/weather_icon_cubit.dart';
-import 'package:diary/modules/models/weather_icon.dart';
-import 'package:diary/utils/utils.dart';
+import 'package:mecore/config/themes/theme_data.dart';
+import 'package:mecore/modules/bloc/weather_icon_cubit.dart';
+import 'package:mecore/modules/models/weather_icon.dart';
+import 'package:mecore/utils/utils.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 

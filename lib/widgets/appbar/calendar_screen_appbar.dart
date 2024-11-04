@@ -1,11 +1,11 @@
-import 'package:diary/config/themes/theme_data.dart';
-import 'package:diary/utils/ui/custom_material_date_picker.dart';
-import 'package:diary/utils/utils.dart';
-import 'package:diary/widgets/appbar_buttons/appbar_date_picker_button.dart';
-import 'package:diary/widgets/appbar_buttons/appbar_menu_icon_button.dart';
-import 'package:diary/widgets/appbar_buttons/appbar_refresh_icon_button.dart';
-import 'package:diary/widgets/appbar_buttons/appbar_search_icon_button.dart';
-import 'package:diary/widgets/appbar_buttons/appbar_user_image.dart';
+import 'package:mecore/config/themes/theme_data.dart';
+import 'package:mecore/utils/ui/custom_material_date_picker.dart';
+import 'package:mecore/utils/utils.dart';
+import 'package:mecore/widgets/appbar_buttons/appbar_date_picker_button.dart';
+import 'package:mecore/widgets/appbar_buttons/appbar_menu_icon_button.dart';
+import 'package:mecore/widgets/appbar_buttons/appbar_refresh_icon_button.dart';
+import 'package:mecore/widgets/appbar_buttons/appbar_search_icon_button.dart';
+import 'package:mecore/widgets/appbar_buttons/appbar_user_image.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 

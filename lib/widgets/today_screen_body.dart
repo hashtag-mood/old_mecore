@@ -1,11 +1,12 @@
-import 'package:diary/config/themes/color_picker_theme_data.dart';
-import 'package:diary/config/themes/theme_data.dart';
-import 'package:diary/modules/bloc/half_hour_color_cells_cubit.dart';
-import 'package:diary/modules/models/half_hour_color_cells.dart';
-import 'package:diary/utils/utils.dart';
-import 'package:diary/widgets/custom_emoji_container.dart';
-import 'package:diary/widgets/number_formatter.dart';
-import 'package:diary/widgets/weather_icon_container.dart';
+import 'package:mecore/config/themes/color_picker_theme_data.dart';
+import 'package:mecore/config/themes/theme_data.dart';
+import 'package:mecore/modules/bloc/half_hour_color_cells_cubit.dart';
+import 'package:mecore/modules/models/half_hour_color_cells.dart';
+import 'package:mecore/utils/utils.dart';
+import 'package:mecore/widgets/animated_emoji_container.dart';
+import 'package:mecore/widgets/custom_emoji_container.dart';
+import 'package:mecore/widgets/number_formatter.dart';
+import 'package:mecore/widgets/weather_icon_container.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -36,7 +37,8 @@ class _TodayScreenBodyState extends State<TodayScreenBody> {
                     WeatherIconContainer(),
                     Row(
                       children: [
-                        CustomEmojiContainer(),
+                        AnimatedEmojiContainer(),
+                        // CustomEmojiContainer(),
                         Container(
                           width: appbarLength(context) * 5 / 7 * 5 + 0.3,
                           height: musicContainerHeight(context),
@@ -78,7 +80,7 @@ class _TodayScreenBodyState extends State<TodayScreenBody> {
                                             NumberFormatter(),
                                           ],
                                           maxLength: 17,
-                                          placeholder: '1,000',
+                                          placeholder: 'INCOME',
                                           textAlign: TextAlign.right,
                                           padding: EdgeInsets.only(right: 2),
                                           style: TextStyle(
@@ -96,7 +98,7 @@ class _TodayScreenBodyState extends State<TodayScreenBody> {
                                       child: Align(
                                         alignment: Alignment.centerLeft,
                                         child: Text(
-                                          '₩',
+                                          '₩', // TODO change the currency symbol based on user selection
                                           style: TextStyle(
                                             fontSize: 15,
                                             color: blackColor,
@@ -140,7 +142,7 @@ class _TodayScreenBodyState extends State<TodayScreenBody> {
                                             NumberFormatter(),
                                           ],
                                           maxLength: 17,
-                                          placeholder: '3,000',
+                                          placeholder: 'EXPENSES',
                                           textAlign: TextAlign.right,
                                           padding: EdgeInsets.only(right: 2),
                                           style: TextStyle(

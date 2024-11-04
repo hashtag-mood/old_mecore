@@ -1,15 +1,14 @@
-import 'package:diary/modules/screens/calendar_screen.dart';
-import 'package:diary/modules/screens/journal_screen.dart';
-import 'package:diary/modules/screens/today_record_screen.dart';
-import 'package:diary/modules/screens/search_screen.dart';
-import 'package:diary/modules/screens/setting_screen.dart';
-import 'package:diary/modules/screens/tasks_screen.dart';
-import 'package:diary/modules/screens/today_edit_screen.dart';
-import 'package:diary/modules/screens/today_screen.dart';
-import 'package:diary/widgets/custom_bottom_navigation_bar.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
+import 'package:mecore/modules/screens/journal_screen.dart';
+import 'package:mecore/modules/screens/onboarding_screen.dart';
+import 'package:mecore/modules/screens/search_screen.dart';
+import 'package:mecore/modules/screens/setting_screen.dart';
+import 'package:mecore/modules/screens/today_edit_screen.dart';
+import 'package:mecore/modules/screens/today_record_screen.dart';
+import 'package:mecore/modules/screens/today_screen.dart';
+import 'package:mecore/widgets/custom_bottom_navigation_bar.dart';
 
 final GlobalKey<NavigatorState> _todayNavigatorKey =
     GlobalKey<NavigatorState>();
@@ -21,8 +20,17 @@ final GlobalKey<NavigatorState> _settingNavigatorKey =
     GlobalKey<NavigatorState>();
 
 final _router = GoRouter(
-  initialLocation: '/today',
+  initialLocation: '/onboarding',
   routes: [
+    GoRoute(
+      path: '/onboarding',
+      builder: (context, state) => OnboardingScreen(
+        signUpPath: '/signUp',
+        signInPath: '/signIn',
+        twitterPath: '/twitter',
+        applePath: 'apple',
+      ),
+    ),
     StatefulShellRoute.indexedStack(
       builder: (context, state, navigationShell) {
         return CustomBottomNavigationBar(
@@ -54,7 +62,10 @@ final _router = GoRouter(
                   path: 'record',
                   builder: (context, state) => TodayRecordScreen(),
                 ),
-                GoRoute(path: 'search', builder: (context, state) => SearchScreen(),),
+                GoRoute(
+                  path: 'search',
+                  builder: (context, state) => SearchScreen(),
+                ),
               ],
             ),
           ],
@@ -92,7 +103,10 @@ final _router = GoRouter(
                   path: 'record',
                   builder: (context, state) => TodayRecordScreen(),
                 ),
-                GoRoute(path: 'search', builder: (context, state) => SearchScreen(),),
+                GoRoute(
+                  path: 'search',
+                  builder: (context, state) => SearchScreen(),
+                ),
               ],
             ),
           ],

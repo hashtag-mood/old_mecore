@@ -1,8 +1,8 @@
-import 'package:diary/config/themes/theme_data.dart';
-import 'package:diary/modules/bloc/date_cubit.dart';
-import 'package:diary/modules/models/date.dart';
-import 'package:diary/utils/utils.dart';
-import 'package:diary/widgets/custom_cupertino_picker.dart';
+import 'package:mecore/config/themes/theme_data.dart';
+import 'package:mecore/modules/bloc/date_cubit.dart';
+import 'package:mecore/modules/models/date.dart';
+import 'package:mecore/utils/utils.dart';
+import 'package:mecore/widgets/custom_cupertino_picker.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';

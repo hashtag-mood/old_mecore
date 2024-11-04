@@ -1,10 +1,11 @@
+/*
 import 'dart:convert';
 
 import 'package:animated_emoji/animated_emoji.dart';
-import 'package:diary/config/routes/routes.dart';
-import 'package:diary/config/themes/color_picker_theme_data.dart';
-import 'package:diary/config/themes/theme_data.dart';
-import 'package:diary/utils/utils.dart';
+import 'package:mecore/config/routes/routes.dart';
+import 'package:mecore/config/themes/color_picker_theme_data.dart';
+import 'package:mecore/config/themes/theme_data.dart';
+import 'package:mecore/utils/utils.dart';
 import 'package:emoji_picker_flutter/emoji_picker_flutter.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -82,7 +83,6 @@ class _CustomEmojiContainerState extends State<CustomEmojiContainer> {
                 ),
                 bottomActionBarConfig: BottomActionBarConfig(enabled: false),
               ),
-
               // child: GridView.builder(
               //   gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
               //       crossAxisCount: 6, childAspectRatio: 1),
@@ -178,3 +178,4 @@ class _CustomEmojiContainerState extends State<CustomEmojiContainer> {
     );
   }
 }
+*/

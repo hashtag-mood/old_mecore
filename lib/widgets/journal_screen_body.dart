@@ -1,7 +1,7 @@
 import 'dart:ui';
 
-import 'package:diary/config/themes/theme_data.dart';
-import 'package:diary/utils/utils.dart';
+import 'package:mecore/config/themes/theme_data.dart';
+import 'package:mecore/utils/utils.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:responsive_notebook_background/responsive_notebook_background.dart';

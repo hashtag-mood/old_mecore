@@ -1,7 +1,7 @@
-import 'package:diary/config/themes/theme_data.dart';
-import 'package:diary/utils/utils.dart';
-import 'package:diary/widgets/appbar/journal_screen_appbar.dart';
-import 'package:diary/widgets/journal_screen_body.dart';
+import 'package:mecore/config/themes/theme_data.dart';
+import 'package:mecore/utils/utils.dart';
+import 'package:mecore/widgets/appbar/journal_screen_appbar.dart';
+import 'package:mecore/widgets/journal_screen_body.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 

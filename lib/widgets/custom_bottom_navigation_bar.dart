@@ -1,5 +1,5 @@
-import 'package:diary/config/themes/theme_data.dart';
-import 'package:diary/utils/utils.dart';
+import 'package:mecore/config/themes/theme_data.dart';
+import 'package:mecore/utils/utils.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
@@ -22,7 +22,7 @@ class CustomBottomNavigationBar extends StatelessWidget {
       body: navigationShell,
       bottomNavigationBar: Container(
         decoration: BoxDecoration(
-          border: Border(top: mainBorderSide, bottom: mainBorderSide),
+          border: Border(top: mainBorderSide),
         ),
         child: NavigationBar(
           onDestinationSelected: onDestinationSelected,

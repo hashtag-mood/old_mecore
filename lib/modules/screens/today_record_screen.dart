@@ -1,14 +1,14 @@
-import 'package:diary/config/routes/routes.dart';
-import 'package:diary/config/themes/color_picker_theme_data.dart';
-import 'package:diary/config/themes/theme_data.dart';
-import 'package:diary/modules/bloc/date_cubit.dart';
-import 'package:diary/modules/models/date.dart';
-import 'package:diary/modules/screens/today_screen.dart';
-import 'package:diary/utils/ui/cupertino_month_year_picker.dart';
-import 'package:diary/utils/ui/custom_cupertino_date_picker.dart';
-import 'package:diary/utils/ui/custom_year_picker.dart';
-import 'package:diary/utils/utils.dart';
-import 'package:diary/widgets/appbar/record_screen_appbar.dart';
+import 'package:mecore/config/routes/routes.dart';
+import 'package:mecore/config/themes/color_picker_theme_data.dart';
+import 'package:mecore/config/themes/theme_data.dart';
+import 'package:mecore/modules/bloc/date_cubit.dart';
+import 'package:mecore/modules/models/date.dart';
+import 'package:mecore/modules/screens/today_screen.dart';
+import 'package:mecore/utils/ui/cupertino_month_year_picker.dart';
+import 'package:mecore/utils/ui/custom_cupertino_date_picker.dart';
+import 'package:mecore/utils/ui/custom_year_picker.dart';
+import 'package:mecore/utils/utils.dart';
+import 'package:mecore/widgets/appbar/record_screen_appbar.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -44,190 +44,184 @@ class _TodayRecordScreenState extends State<TodayRecordScreen> {
         ),
         body: BlocBuilder<DateCubit, Date>(
           builder: (context, state) {
-            return Container(
-              decoration: BoxDecoration(color: backgroundColor),
-              child: Column(
-                children: [
-                  Container(
-                    decoration: BoxDecoration(
-                      border: Border(bottom: mainBorderSide),
-                    ),
-                    width: screenWidth(context),
-                    padding: EdgeInsets.symmetric(horizontal: 4),
-                    child: Row(
-                      children: List.generate(
-                        7,
-                        (index) {
-                          return SizedBox(
-                            height: appbarLength(context) * 4 / 5,
-                            width: (screenWidth(context) - 8) / 7,
-                            child: Align(
-                              alignment: Alignment.center,
-                              child: Text(
-                                (Localizations.localeOf(context).languageCode ==
-                                        'en')
-                                    ? dayOfWeek['en']![index]
-                                    : (Localizations.localeOf(context)
-                                                .languageCode ==
-                                            'ko')
-                                        ? dayOfWeek['ko']![index]
-                                        : (Localizations.localeOf(context)
-                                                    .languageCode ==
-                                                'ja')
-                                            ? dayOfWeek['ja']![index]
-                                            : dayOfWeek['en']![index],
-                                style: (Localizations.localeOf(context)
-                                            .languageCode ==
-                                        'en')
-                                    ? TextStyle(
-                                        color: blackColor,
-                                        fontSize: 18,
-                                        fontFamily: 'Pretendard JP',
-                                        fontVariations: [
-                                          FontVariation('wght', 300),
-                                        ],
-                                      )
-                                    : (Localizations.localeOf(context)
-                                                .languageCode ==
-                                            'ko')
-                                        ? TextStyle(
-                                            color: blackColor,
-                                            fontSize: 18,
-                                          )
-                                        : (Localizations.localeOf(context)
-                                                    .languageCode ==
-                                                'ja')
-                                            ? TextStyle(
-                                                color: blackColor,
-                                                fontFamily: 'Pretendard JP',
-                                                fontVariations: [
-                                                  FontVariation('wght', 400),
-                                                ],
-                                                fontSize: 18,
-                                              )
-                                            : TextStyle(
-                                                color: blackColor,
-                                                fontSize: 18,
-                                                fontFamily: 'Pretendard JP',
-                                                fontVariations: [
-                                                  FontVariation('wght', 300),
-                                                ],
-                                              ),
+            return SingleChildScrollView(
+              child: Container(
+                decoration: BoxDecoration(color: backgroundColor),
+                child: Column(
+                  children: [
+                    Container(
+                      decoration: BoxDecoration(
+                        border: Border(bottom: mainBorderSide),
+                      ),
+                      width: screenWidth(context),
+                      padding: EdgeInsets.symmetric(horizontal: 4),
+                      child: Row(
+                        children: List.generate(
+                          7,
+                          (index) {
+                            return SizedBox(
+                              height: appbarLength(context) * 4 / 5,
+                              width: (screenWidth(context) - 8) / 7,
+                              child: Align(
+                                alignment: Alignment.center,
+                                child: Text(
+                                  (Localizations.localeOf(context).languageCode ==
+                                          'en')
+                                      ? dayOfWeek['en']![index]
+                                      : (Localizations.localeOf(context)
+                                                  .languageCode ==
+                                              'ko')
+                                          ? dayOfWeek['ko']![index]
+                                          : (Localizations.localeOf(context)
+                                                      .languageCode ==
+                                                  'ja')
+                                              ? dayOfWeek['ja']![index]
+                                              : dayOfWeek['en']![index],
+                                  style: (Localizations.localeOf(context)
+                                                  .languageCode ==
+                                              'en' ||
+                                          Localizations.localeOf(context)
+                                                  .languageCode ==
+                                              'ja')
+                                      ? TextStyle(
+                                          color: blackColor,
+                                          fontSize: 20,
+                                          fontFamily: 'Pretendard JP',
+                                          fontVariations: [
+                                            FontVariation('wght', 400),
+                                          ],
+                                        )
+                                      : (Localizations.localeOf(context)
+                                                  .languageCode ==
+                                              'ko')
+                                          ? TextStyle(
+                                              color: blackColor,
+                                              fontSize: 20,
+                                            )
+                                          : TextStyle(
+                                              color: blackColor,
+                                              fontSize: 20,
+                                              fontFamily: 'Pretendard JP',
+                                              fontVariations: [
+                                                FontVariation('wght', 400),
+                                              ],
+                                            ),
+                                ),
                               ),
-                            ),
-                          );
+                            );
+                          },
+                        ),
+                      ),
+                    ),
+                    Container(
+                      width: screenWidth(context),
+                      padding: EdgeInsets.all(4),
+                      decoration: BoxDecoration(
+                        border: Border(bottom: mainBorderSide),
+                      ),
+                      child: TableCalendar(
+                        rowHeight: appbarLength(context),
+                        focusedDay: state.dateTime,
+                        onPageChanged: (focusedDay) {
+                          context.read<DateCubit>().updateYear(focusedDay.year);
+                          context.read<DateCubit>().updateMonth(focusedDay.month);
                         },
+                        firstDay: DateTime(1900, 1),
+                        lastDay: DateTime(2100, 12, 31),
+                        headerVisible: false,
+                        selectedDayPredicate: (day) {
+                          return isSameDay(_selectedDay, day);
+                        },
+                        onDaySelected: (selectedDay, focusedDay) {
+                          setState(() {
+                            _selectedDay = selectedDay;
+                            state.dateTime = focusedDay;
+                          });
+                        },
+                        locale: Localizations.localeOf(context).toString(),
+                        calendarBuilders: CalendarBuilders(
+                          markerBuilder: (context, day, events) {},
+                        ),
+                        calendarStyle: CalendarStyle(
+                          rowDecoration: BoxDecoration(
+                            color: backgroundColor,
+                          ),
+                          todayDecoration: BoxDecoration(
+                            borderRadius: BorderRadius.zero,
+                            shape: BoxShape.rectangle,
+                            color: lightPinkColor,
+                            border: Border.all(color: blackColor, width: 1),
+                          ),
+                          defaultTextStyle: TextStyle(
+                            color: blackColor,
+                            fontFamily: 'Public Sans',
+                            fontVariations: [
+                              FontVariation('wght', 200),
+                            ],
+                            fontSize: 17,
+                            letterSpacing: 1,
+                          ),
+                          weekendTextStyle: TextStyle(
+                            color: blackColor,
+                            fontFamily: 'Public Sans',
+                            fontVariations: [
+                              FontVariation('wght', 200),
+                            ],
+                            fontSize: 17,
+                            letterSpacing: 1,
+                          ),
+                          todayTextStyle: TextStyle(
+                            color: blackColor,
+                            fontFamily: 'Public Sans',
+                            fontVariations: [
+                              FontVariation('wght', 200),
+                            ],
+                            fontSize: 17,
+                            letterSpacing: 1,
+                          ),
+                          outsideTextStyle: TextStyle(
+                            color: textDarkSilverColor,
+                            fontFamily: 'Public Sans',
+                            fontVariations: [
+                              FontVariation('wght', 200),
+                            ],
+                            fontSize: 17,
+                            letterSpacing: 1,
+                          ),
+                          disabledTextStyle: TextStyle(
+                            color: textDarkSilverColor,
+                            fontFamily: 'Public Sans',
+                            fontVariations: [
+                              FontVariation('wght', 200),
+                            ],
+                            fontSize: 17,
+                            letterSpacing: 1,
+                          ),
+                          selectedTextStyle: TextStyle(
+                            color: blackColor,
+                            fontFamily: 'Public Sans',
+                            fontVariations: [
+                              FontVariation('wght', 200),
+                            ],
+                            fontSize: 17,
+                            letterSpacing: 1,
+                          ),
+                          defaultDecoration: BoxDecoration(),
+                          weekendDecoration: BoxDecoration(),
+                          outsideDecoration: BoxDecoration(),
+                          disabledDecoration: BoxDecoration(),
+                          selectedDecoration: BoxDecoration(
+                            borderRadius: BorderRadius.zero,
+                            shape: BoxShape.rectangle,
+                            color: lightSilverColor,
+                            border: Border.all(color: blackColor, width: 1),
+                          ),
+                        ),
+                        daysOfWeekVisible: false,
                       ),
                     ),
-                  ),
-                  Container(
-                    width: screenWidth(context),
-                    padding: EdgeInsets.all(4),
-                    decoration: BoxDecoration(
-                      border: Border(bottom: mainBorderSide),
-                    ),
-                    child: TableCalendar(
-                      rowHeight: appbarLength(context),
-                      focusedDay: state.dateTime,
-                      onPageChanged: (focusedDay) {
-                        context.read<DateCubit>().updateYear(focusedDay.year);
-                        context.read<DateCubit>().updateMonth(focusedDay.month);
-                      },
-                      firstDay: DateTime(1900, 1),
-                      lastDay: DateTime(2100, 12, 31),
-                      headerVisible: false,
-                      selectedDayPredicate: (day) {
-                        return isSameDay(_selectedDay, day);
-                      },
-                      onDaySelected: (selectedDay, focusedDay) {
-                        setState(() {
-                          _selectedDay = selectedDay;
-                          state.dateTime = focusedDay;
-                        });
-                      },
-                      locale: Localizations.localeOf(context).toString(),
-                      calendarBuilders: CalendarBuilders(
-                        markerBuilder: (context, day, events) {},
-                      ),
-                      calendarStyle: CalendarStyle(
-                        rowDecoration: BoxDecoration(
-                          color: backgroundColor,
-                        ),
-                        todayDecoration: BoxDecoration(
-                          borderRadius: BorderRadius.zero,
-                          shape: BoxShape.rectangle,
-                          color: lightPinkColor,
-                          border: Border.all(color: blackColor, width: 1),
-                        ),
-                        defaultTextStyle: TextStyle(
-                          color: blackColor,
-                          fontFamily: 'Public Sans',
-                          fontVariations: [
-                            FontVariation('wght', 200),
-                          ],
-                          fontSize: 17,
-                          letterSpacing: 1,
-                        ),
-                        weekendTextStyle: TextStyle(
-                          color: blackColor,
-                          fontFamily: 'Public Sans',
-                          fontVariations: [
-                            FontVariation('wght', 200),
-                          ],
-                          fontSize: 17,
-                          letterSpacing: 1,
-                        ),
-                        todayTextStyle: TextStyle(
-                          color: blackColor,
-                          fontFamily: 'Public Sans',
-                          fontVariations: [
-                            FontVariation('wght', 200),
-                          ],
-                          fontSize: 17,
-                          letterSpacing: 1,
-                        ),
-                        outsideTextStyle: TextStyle(
-                          color: textDarkSilverColor,
-                          fontFamily: 'Public Sans',
-                          fontVariations: [
-                            FontVariation('wght', 200),
-                          ],
-                          fontSize: 17,
-                          letterSpacing: 1,
-                        ),
-                        disabledTextStyle: TextStyle(
-                          color: textDarkSilverColor,
-                          fontFamily: 'Public Sans',
-                          fontVariations: [
-                            FontVariation('wght', 200),
-                          ],
-                          fontSize: 17,
-                          letterSpacing: 1,
-                        ),
-                        selectedTextStyle: TextStyle(
-                          color: blackColor,
-                          fontFamily: 'Public Sans',
-                          fontVariations: [
-                            FontVariation('wght', 200),
-                          ],
-                          fontSize: 17,
-                          letterSpacing: 1,
-                        ),
-                        defaultDecoration: BoxDecoration(),
-                        weekendDecoration: BoxDecoration(),
-                        outsideDecoration: BoxDecoration(),
-                        disabledDecoration: BoxDecoration(),
-                        selectedDecoration: BoxDecoration(
-                          borderRadius: BorderRadius.zero,
-                          shape: BoxShape.rectangle,
-                          color: lightSilverColor,
-                          border: Border.all(color: blackColor, width: 1),
-                        ),
-                      ),
-                      daysOfWeekVisible: false,
-                    ),
-                  ),
-                ],
+                  ],
+                ),
               ),
             );
           },

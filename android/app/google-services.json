@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "85002891621",
+    "project_id": "mecore-5a9fc",
+    "storage_bucket": "mecore-5a9fc.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:85002891621:android:05367a466b7274e6f8718c",
+        "android_client_info": {
+          "package_name": "com.hashtagmood.mecore"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAk0Tt0bsCgJ0LXrsreQIf7pkHzSKVNKKI"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
